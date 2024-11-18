@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Abertura"
+    android:background="@color/azulFundo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/logo_app_150x" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+
+        android:text="Login"
+
+        android:shadowColor="@color/cinza"
+        android:shadowRadius="11"
+        android:shadowDx="5"
+        android:shadowDy="5"
+
+        android:textSize="50dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:fontFamily="@font/inter_variablefont"/>
+    <!-- DIV do Usuário -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="1dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/at_email"
+                android:layout_marginRight="1dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CPF ou e-mail"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/set_email_login"
+            android:maxLines="1"
+            android:inputType="text"
+            android:singleLine="true"
+
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp"
+
+            android:hint="Insira o e-mail ou CPF..."
+            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+
+            />
+    </LinearLayout>
+    <!-- Fim da DIV -->
+
+
+    <!-- DIV do Senha -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="1dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lock_senha"
+                android:layout_marginRight="1dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Senha"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+        <!-- android:maxLength="7" -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/set_email_login"
+
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:singleLine="true"
+
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp"
+
+            android:hint="Insira a senha..."
+            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+    <!-- Fim da DIV -->
+
+
+    <Button
+        android:id="@+id/login_btEntrar"
+
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="30dp"
+        app:backgroundTint="@color/azulFundoEscuro"
+        android:background="@drawable/bt_login"
+
+
+        android:text="Entrar"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="100dp"
+        android:textAlignment="center"
+
+        android:text="Esqueseu a senha?"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+
+        />
+
+    <TextView
+        android:id="@+id/login_recSenha"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="120dp"
+        android:textAlignment="center"
+
+        android:text="Recuperar Senha"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Abertura"
+    android:background="@color/azulFundo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/logo_app_150x" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+
+        android:text="Bem-Vindo!"
+
+        android:shadowColor="@color/cinza"
+        android:shadowRadius="11"
+        android:shadowDx="5"
+        android:shadowDy="5"
+
+        android:textSize="50dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:fontFamily="@font/playfair_display_v"/>
+
+
+    <Button
+        android:id="@+id/abertura_btEntrar"
+
+        android:layout_width="315dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginVertical="30dp"
+        app:backgroundTint="@color/azulFundoEscuro"
+        android:background="@drawable/bt_abertura"
+
+        android:text="Entrar"
+        android:textSize="25dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+
+        android:text="Não tem conta?"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/inter_variablefont"
+
+        android:shadowColor="@color/cinza"
+        android:shadowRadius="11"
+        android:shadowDx="5"
+        android:shadowDy="5"/>
+
+    <Button
+        android:id="@+id/abertura_btCad"
+
+        android:layout_width="315dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginVertical="30dp"
+        app:backgroundTint="@color/azulFundoClaro"
+        android:background="@drawable/bt_abertura"
+
+        android:text="Criar Conta"
+        android:textSize="25dp"
+
+
+        />
+
+    <Button
+        android:id="@+id/bt_aberturaSup"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="53dp"
+
+        android:text="Entrar em contato com o suporte"
+        android:textSize="15dp"
+
+        android:background="#00000000"/>
+
+
+
+
+</LinearLayout>
