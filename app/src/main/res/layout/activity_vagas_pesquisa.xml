@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="#2b4f6a"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VagasPesquisa"
+    android:orientation="vertical">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:background="#FFFFFF"
+      android:padding="10dp">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar Vagas"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="10dp" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:background="#2b4f6a"
+      android:padding="10dp">
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Filtrar por:"
+        android:background="@android:color/transparent"
+        android:padding="8dp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+
+  </LinearLayout>
+
+  <!-- Lista de vagas -->
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:background="#FFFFFF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+      <!-- Vaga 1 -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:background="#2b4f6a"
+          android:padding="10dp"
+          android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distribuição de Alimentos"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="São Paulo - SP"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atividades: Separar os
+
+alimentos"
+
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cod.Vaga: 12345"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/btnCandidatar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Me Candidatar"
+            android:backgroundTint="#FF0000"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp" />
+
+      </LinearLayout>
+      <!-- Vaga 2 -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:background="#2b4f6a"
+          android:padding="10dp"
+          android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distribuição de Roupas"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="São Paulo"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atividades: Separação de Roupas
+
+"
+
+            android:textColor="#FFFFFF" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cod.Vaga: 12346"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/btnCandidatar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Me Candidatar"
+            android:backgroundTint="#FF0000"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp" />
+
+      </LinearLayout>
+      <!--Vaga 3 -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:background="#2b4f6a"
+          android:padding="10dp"
+          android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distribuição de Alimentos"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="São Paulo - SP"
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atividades: Separar os
+
+alimentos"
+
+            android:textColor="#FFFFFF" />
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="Cod.Vaga: 12347"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/btnCandidatar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Me Candidatar"
+            android:backgroundTint="#FF0000"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp" />
+
+      </LinearLayout>
+    </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.App_developer"
         tools:targetApi="31">
         <activity
+            android:name=".VagasPesquisa"
+            android:exported="false" />
+        <activity
+            android:name=".Abertura"
+            android:exported="false" />
+        <activity
             android:name=".Cadastro"
             android:exported="false" />
         <activity
@@ -28,7 +34,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Abertura"
+            android:name=".Config"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
