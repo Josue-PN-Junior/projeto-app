@@ -79,7 +79,7 @@ public class Home extends AppCompatActivity {
         vagasHome vaga4 = new vagasHome(
                 "Arrecadação de Brinquedos",
                 "Crescer",
-                "Arrecadação de brinquedos",
+                "Arrecadação de brinquedos e separação, entrega e ver a alegria delas.",
                 "São Paulo - SP",
                 1237
         );
