@@ -10,35 +10,6 @@
     >
 
 
-    <!-- Vagas Recém publicadas -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:background="@color/azulFundoBemClaro"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Vagas recém Publicadas"
-
-            android:textColor="@color/black"
-            android:textSize="20dp"
-
-            />
-
-        <!-- Vagas Recém publicadas -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="1dp"
-            android:id="@+id/recycleView_VagasRecPubli"
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
 
 
     <!-- Vagas Minhas -->
@@ -47,8 +18,7 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:background="@color/azulFundoBemClaro"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -71,6 +41,34 @@
 
     </LinearLayout>
 
+    <!-- Vagas Recém publicadas -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:background="@color/azulFundoBemClaro"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Vagas recém Publicadas"
+
+            android:textColor="@color/black"
+            android:textSize="20dp"
+
+            />
+
+        <!-- Vagas Recém publicadas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="1dp"
+            android:id="@+id/recycleView_VagasRecPubli"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
 
     <!-- Vagas Vistas Recentemente -->
     <LinearLayout
@@ -78,8 +76,7 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:background="@color/azulFundoBemClaro"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
