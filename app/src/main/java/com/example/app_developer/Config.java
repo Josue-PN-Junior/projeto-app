@@ -1,5 +1,6 @@
 package com.example.app_developer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -12,6 +13,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Config extends AppCompatActivity {
 
@@ -51,7 +54,44 @@ public class Config extends AppCompatActivity {
             public void onClick(View v) {
                 showToast("Permissões");
             }
+
         });
+
+        // ==========================
+        // Barra de navegação
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationConfig);
+
+        // Define o item de "Home" como selecionado inicialmente
+        bottomNavigationView.setSelectedItemId(R.id.nav_config);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                // Não reinicia a Activity Home, apenas retorna true
+                startActivity(new Intent(this, Home.class));
+                return true;
+            } else if (item.getItemId() == R.id.nav_config) {
+                // Se o item for 'Config', abre a Activity Config
+                startActivity(new Intent(this, Config.class));
+                return true;
+            } else if (item.getItemId() == R.id.nav_perfil) {
+                // Se o item for 'Perfil', abre a Activity VagasPesquisa
+                startActivity(new Intent(this, Home.class));
+                return true;
+            }  else if (item.getItemId() == R.id.nav_filtro) {
+                // Se o item for 'Perfil', abre a Activity VagasPesquisa
+                startActivity(new Intent(this, Home.class));
+                return true;
+            }  else if (item.getItemId() == R.id.nav_vagas) {
+                // Se o item for 'Perfil', abre a Activity VagasPesquisa
+                startActivity(new Intent(this, Home.class));
+                return true;
+            }
+            return false;
+        });
+
+
+
+
     }
     private void showToast(String message) {
         Toast.makeText(Config.this, message, Toast.LENGTH_SHORT).show();

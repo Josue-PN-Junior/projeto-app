@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_perfil"
+        android:icon="@drawable/perfil_de_usuario"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/nav_filtro"
+        android:icon="@drawable/lupa"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/botao_home"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/nav_vagas"
+        android:icon="@drawable/lista"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/nav_config"
+        android:icon="@drawable/engrenagem"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+</menu>
