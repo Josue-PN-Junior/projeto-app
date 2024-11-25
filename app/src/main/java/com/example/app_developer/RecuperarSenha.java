@@ -30,7 +30,7 @@ public class RecuperarSenha extends AppCompatActivity implements View.OnClickLis
         });
 
         // classe
-        PopUP = new PopUP(this);
+        PopUP = new PopUP(this, 0);
 
         // indetificar
         bt_RecSenhaSup = (Button) findViewById(R.id.bt_RecSenhaSup);

@@ -13,14 +13,21 @@ public class PopUP {
     private PopupWindow popupWindow;
     private View popupView;
 
-    public PopUP(Context context) {
+    public PopUP(Context context, Integer num) {
 
         if (context instanceof AlterarSenha || context instanceof RecuperarSenha) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             popupView = inflater.inflate(R.layout.popup_sup, null);
         } else if (context instanceof Cadastro) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            popupView = inflater.inflate(R.layout.popup_termos, null);
+            if (num == 0) {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                popupView = inflater.inflate(R.layout.popup_termos, null);
+            } else {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                popupView = inflater.inflate(R.layout.popup_cadastrado, null);
+
+            }
+
         }
 
         popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
@@ -28,6 +35,9 @@ public class PopUP {
 
         Button bt_popSupFechar = popupView.findViewById(R.id.bt_popSupFechar);
         bt_popSupFechar.setOnClickListener(view -> dismiss());
+
+
+
     }
 
     public void dismiss() {

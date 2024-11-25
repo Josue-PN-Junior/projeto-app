@@ -1,7 +1,14 @@
 package com.example.app_developer;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,13 +25,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityHomeBinding binding;
     private AdapterListaHome homeListaAdapter, homeListaAdapterMinhas, homeListaAdapterVistas;
     private ArrayList<vagasHome> vagasHome = new ArrayList<vagasHome>();
     private ArrayList<vagasHome> vagasMinhas = new ArrayList<vagasHome>();
+    String email, cpf;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +44,12 @@ public class Home extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // recebendo
+        Intent intencao = getIntent();
+        Bundle parametros = intencao.getExtras();
+        email = parametros.getString("email");
+        BancoController bd = new BancoController(getBaseContext());
+        cpf = bd.PesquisarCpf(email).toString();
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -142,7 +157,8 @@ public class Home extends AppCompatActivity {
     }
 
     private void getVagasHome() {
-
+//        BancoController bd = new BancoController(getBaseContext());
+//        bd.getVagasRecem(6);
         vagasHome vaga1 = new vagasHome(
                 "Coleta de Alimentos",
                 "Banco de Alimentos",
@@ -181,4 +197,8 @@ public class Home extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }

@@ -41,12 +41,15 @@
                     android:src="@drawable/logo_app_100x" />
 
                 <TextView
+                    android:id="@+id/txtHome"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="Conexão Solidária"
                     android:textColor="@color/white"
                     android:textSize="20dp" />
+
             </LinearLayout>
 
             <!-- Vagas Minhas -->

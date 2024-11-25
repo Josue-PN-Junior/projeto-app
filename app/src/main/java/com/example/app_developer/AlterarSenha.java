@@ -27,7 +27,7 @@ public class AlterarSenha extends AppCompatActivity implements View.OnClickListe
         });
 
         // classe
-        PopUP2 = new PopUP(this);
+        PopUP2 = new PopUP(this, 0);
 
         // indetificando
         bt_AltSenhaSup = (Button) findViewById(R.id.bt_AltSenhaSup);
