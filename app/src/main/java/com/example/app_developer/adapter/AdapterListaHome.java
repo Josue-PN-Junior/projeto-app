@@ -37,6 +37,8 @@ public class AdapterListaHome extends RecyclerView.Adapter<AdapterListaHome.list
     public void onBindViewHolder(@NonNull listaHomeViewHolder holder, int position) {
         holder.binding.homeTituloItenLista.setText(vagasLista.get(position).getTitulo_vaga());
 
+        String lixo = vagasLista.get(position).getCod_ong();
+
         //holder.binding.homeOngItenLista.setText(vagasLista.get(position).getOng_vaga());
         holder.binding.homeOngItenLista.setText(
                 Html.fromHtml("<b> Ong: </b>" + vagasLista.get(position).getOng_vaga()),

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.app_developer.modelo.vagasHome;
 
@@ -57,76 +58,147 @@ public class BancoController {
     }
 
     public String PesquisarCpf(String _email) {
-        String cpf = null; // Variável para armazenar o CPF
-        String[] campos = {"cpf"};
-        String where = "email = ? AND ativo = 1";
-        String[] whereArgs = {_email};
+        String cpf = null;
+        SQLiteDatabase db = banco.getReadableDatabase();
+        String query = "SELECT cpf FROM usuarios WHERE email = ? AND ativo = 1";
 
-        db = banco.getReadableDatabase();
-        Cursor cursor = db.query("usuarios", campos, where, whereArgs, null, null, null);
-
-        // Verifica se o cursor tem resultado
+        Cursor cursor = db.rawQuery(query, new String[]{_email});
         if (cursor != null && cursor.moveToFirst()) {
-            cpf = cursor.getString(cursor.getColumnIndexOrThrow("cpf")); // Obtém o valor do CPF
+            cpf = cursor.getString(cursor.getColumnIndexOrThrow("cpf"));
         }
 
-        // Fecha o cursor e o banco de dados
-        if (cursor != null) {
-            cursor.close();
-        }
+        cursor.close();
         db.close();
-
-        return cpf; // Retorna o CPF ou null caso não encontrado
+        return cpf;
     }
+
 
     public ArrayList<vagasHome> getVagasRecem(int limite) {
         ArrayList<vagasHome> vagasRecem = new ArrayList<>();
         SQLiteDatabase db = banco.getReadableDatabase();
+;
+        // Log para verificar se estamos chegando até a consulta
+        Log.d("BancoController", "Executando a consulta para obter vagas");
 
         // query / busca
-        String query = "SELECT * FROM vagas ORDER BY data DESC LIMIT " + limite;
+        String[] campos = {"codVaga", "nome", "atividade", "local", "data", "ongCnpj"};
+        String limit = String.valueOf(limite);
+        Cursor cursor = db.query("vagas", campos, null, null, null, null, "data DESC", limit);
 
-        Cursor cursor = db.rawQuery(query, null);
+        // Verificar se o cursor contém dados
+        if (cursor != null) {
+            Log.d("BancoController", "Cursor retornou resultados: " + cursor.getCount());
+        } else {
+            Log.d("BancoController", "Cursor está vazio");
+        }
 
-       // pesquisa
-       if (cursor.moveToFirst()){
-           do {
-               String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
-               int codOng = cursor.getInt(cursor.getColumnIndexOrThrow("ongCnpj"));
-               String ong = getNomeOngVaga(codOng);
-               String atividade = cursor.getString(cursor.getColumnIndexOrThrow("atividade"));
-               String local = cursor.getString(cursor.getColumnIndexOrThrow("local"));
-               int cod = cursor.getInt(cursor.getColumnIndexOrThrow("codVaga"));
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
+                String codOng = cursor.getString(cursor.getColumnIndexOrThrow("ongCnpj"));
+                String ong = getNomeOngVaga(codOng);
+                String atividade = cursor.getString(cursor.getColumnIndexOrThrow("atividade"));
+                String local = cursor.getString(cursor.getColumnIndexOrThrow("local"));
+                int cod = cursor.getInt(cursor.getColumnIndexOrThrow("codVaga"));
 
-           } while (cursor.moveToNext());
-       }
-       cursor.close();
-       db.close();
+                Log.d("BancoController", "Vaga encontrada: " + nome); // Log da vaga encontrada
 
-       return vagasRecem;
+                vagasHome vaga = new vagasHome(nome, codOng, ong, atividade, local, cod);
+
+                // Adiciona a vaga à lista
+                vagasRecem.add(vaga);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        // Verificando o tamanho da lista após a consulta
+        Log.d("BancoController", "Total de vagas recuperadas: " + vagasRecem.size());
+        return vagasRecem;
     }
 
-    public String getNomeOngVaga(int codVaga) {
+
+
+    public void setDadosBancoOng(String _cpnj, String _nome, String _local, String _telefone, String _senha) {
+        SQLiteDatabase db = banco.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("cpnj", _cpnj);
+        values.put("nome", _nome);
+        values.put("local", _local);
+        values.put("telefone", _telefone);
+        values.put("senha", _senha);
+        values.put("ativo", 1);
+
+        db.insert("ongs", null, values);
+        db.close();
+    }
+
+    public void setDadosBancoVaga(String _codVaga, String _nome, String _atividade, String _local, String _data, String _requisitos, String _descricao, String _ongCnpj) {
+        SQLiteDatabase db = banco.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("codVaga", _codVaga);
+        values.put("nome", _nome);
+        values.put("atividade", _atividade);
+        values.put("local", _local);
+        values.put("data", _data);
+        values.put("requisitos", _requisitos);
+        values.put("descricao", _descricao);
+        values.put("ativo", 1);
+        values.put("ongCnpj", _ongCnpj);
+
+        db.insert("vagas", null, values);
+        db.close();
+    }
+
+
+    public String getNomeOngVaga(String codVaga) {
         SQLiteDatabase db = banco.getReadableDatabase();
         String nomeOng = null;
 
-        // Consulta SQL
-        String query = "SELECT ongs.nome " +
-                "FROM ongs " +
-                "JOIN vagas ON vagas.ongCnpj = ongs.cpnj " +
-                "WHERE vagas.codVaga = ?;";
+        // Verificando o valor de ongCnpj associado à vaga
+        Cursor cursorVagas = db.rawQuery("SELECT ongCnpj FROM vagas WHERE codVaga = ?", new String[]{codVaga});
+        if (cursorVagas.moveToFirst()) {
+            String ongCnpj = cursorVagas.getString(cursorVagas.getColumnIndex("ongCnpj"));
+            Log.d("BancoController", "CNPJ da ONG associado à vaga: " + ongCnpj);
+        } else {
+            Log.d("BancoController", "Nenhuma vaga encontrada com codVaga: " + codVaga);
+        }
+        cursorVagas.close();
 
-        // Executa a consulta com o código da vaga como parâmetro
-        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(codVaga)});
+        // Consulta SQL para obter o nome da ONG
+        String query = "SELECT nome "
+                + "FROM ongs "
+                + "WHERE cpnj = ?;";
 
-        // Verifica se há resultados e recupera o nome
+        Cursor cursor = db.rawQuery(query, new String[]{codVaga});  // Passando o código da vaga como parâmetro
+
         if (cursor.moveToFirst()) {
             nomeOng = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
+            Log.d("BancoController", "Nome da ONG encontrado: " + nomeOng);
+        } else {
+            Log.d("BancoController", "Nenhuma ONG encontrada para a vaga: " + codVaga);
         }
+
         cursor.close(); // Fecha o cursor após o uso
         db.close(); // Fecha o banco de dados
+
+        Log.d("BancoController", "Nome da ONG retornado: " + nomeOng);
         return nomeOng;
     }
+
+
+
+
+
+
+
+    //
+
+
+    //
+
+
 
 
 }

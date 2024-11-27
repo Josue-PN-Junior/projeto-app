@@ -31,6 +31,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     private AdapterListaHome homeListaAdapter, homeListaAdapterMinhas, homeListaAdapterVistas;
     private ArrayList<vagasHome> vagasHome = new ArrayList<vagasHome>();
     private ArrayList<vagasHome> vagasMinhas = new ArrayList<vagasHome>();
+    private ArrayList<vagasHome> vagasVistas = new ArrayList<vagasHome>();
     String email, cpf;
 
     @SuppressLint("SetTextI18n")
@@ -78,14 +79,14 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         recyclerViewHomeMinhas.setHasFixedSize(true);
 
         // Adpater Minhas
-        homeListaAdapterMinhas = new AdapterListaHome(vagasHome, this);
+        homeListaAdapterMinhas = new AdapterListaHome(vagasMinhas, this);
             recyclerViewHomeMinhas.setAdapter(homeListaAdapter);
         getVagasHome();
-        if ((vagasHome.size() % 2) == 1) {
-            vagasHome.add(getVagasNot());
-        } else if (vagasHome.isEmpty()) {
-            vagasHome.add(getVagasNot());
-            vagasHome.add(getVagasNot());
+        if ((vagasMinhas.size() % 2) == 1) {
+            vagasMinhas.add(getVagasNot());
+        } else if (vagasMinhas.isEmpty()) {
+            vagasMinhas.add(getVagasNot());
+            vagasMinhas.add(getVagasNot());
         }
 
         // Vista
@@ -95,14 +96,14 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         recyclerViewHomeVistas.setHasFixedSize(true);
 
         // Adpater Vistas
-        homeListaAdapterVistas = new AdapterListaHome(vagasHome, this);
+        homeListaAdapterVistas = new AdapterListaHome(vagasVistas, this);
         recyclerViewHomeVistas.setAdapter(homeListaAdapter);
         getVagasHome();
-        if ((vagasHome.size() % 2) == 1) {
-            vagasHome.add(getVagasNot());
-        } else if (vagasHome.isEmpty()) {
-            vagasHome.add(getVagasNot());
-            vagasHome.add(getVagasNot());
+        if ((vagasVistas.size() % 2) == 1) {
+            vagasVistas.add(getVagasNot());
+        } else if (vagasVistas.isEmpty()) {
+            vagasVistas.add(getVagasNot());
+            vagasVistas.add(getVagasNot());
         }
 
 
@@ -150,6 +151,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 "",
                 "",
                 "",
+                "",
                 0
         );
        return vagaN;
@@ -157,43 +159,52 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void getVagasHome() {
-//        BancoController bd = new BancoController(getBaseContext());
-//        bd.getVagasRecem(6);
-        vagasHome vaga1 = new vagasHome(
-                "Coleta de Alimentos",
-                "Banco de Alimentos",
-                "Coleta de Alimentos",
-                "São Paulo - SP",
-                1234
-        );
-        vagasHome.add(vaga1);
 
-        vagasHome vaga2 = new vagasHome(
-                "Arrecadação de Brinquedos",
-                "Crescer",
-                "Arrecadação de brinquedos",
-                "São Paulo - SP",
-                1235
-        );
-        vagasHome.add(vaga2);
+        BancoController bd = new BancoController(getBaseContext());
 
-        vagasHome vaga3 = new vagasHome(
-                "Coleta de Alimentos",
-                "Banco de Alimentos",
-                "Coleta de Alimentos",
-                "São Paulo - SP",
-                1236
-        );
-        vagasHome.add(vaga3);
+        vagasHome.addAll(bd.getVagasRecem(6));
+        vagasMinhas.addAll(bd.getVagasRecem(6));
+        vagasVistas.addAll(bd.getVagasRecem(6));
 
-        vagasHome vaga4 = new vagasHome(
-                "Arrecadação de Brinquedos",
-                "Crescer",
-                "Arrecadação de brinquedos e separação, entrega e ver a alegria delas.",
-                "São Paulo - SP",
-                1237
-        );
-        vagasHome.add(vaga4);
+//        vagasHome vaga1 = new vagasHome(
+//                "Coleta de Alimentos",
+//                "123",
+//                "Banco de Alimentos",
+//                "Coleta de Alimentos",
+//                "São Paulo - SP",
+//                1234
+//        );
+//        vagasHome.add(vaga1);
+//
+//        vagasHome vaga2 = new vagasHome(
+//                "Arrecadação de Brinquedos",
+//                "123",
+//                "Crescer",
+//                "Arrecadação de brinquedos",
+//                "São Paulo - SP",
+//                1235
+//        );
+//        vagasHome.add(vaga2);
+//
+//        vagasHome vaga3 = new vagasHome(
+//                "Coleta de Alimentos",
+//                "123",
+//                "Banco de Alimentos",
+//                "Coleta de Alimentos",
+//                "São Paulo - SP",
+//                1236
+//        );
+//        vagasHome.add(vaga3);
+//
+//        vagasHome vaga4 = new vagasHome(
+//                "Arrecadação de Brinquedos",
+//                "123",
+//                "Crescer",
+//                "Arrecadação de brinquedos e separação, entrega e ver a alegria delas.",
+//                "São Paulo - SP",
+//                1237
+//        );
+//        vagasHome.add(vaga4);
 
     }
 

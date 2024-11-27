@@ -1,21 +1,38 @@
 package com.example.app_developer.modelo;
 
 public class vagasHome  {
-    public String titulo_vaga, ong_vaga, atividade, local;
+    public String titulo_vaga, cod_ong ,ong_vaga, atividade, local;
     int cod;
 
     // construtor
 
-
-    public vagasHome(String titulo_vaga, String ong_vaga, String atividade, String local, int cod) {
+    public vagasHome(String titulo_vaga, String cod_ong, String ong_vaga, String atividade, String local, int cod) {
         this.titulo_vaga = titulo_vaga;
+        this.cod_ong = cod_ong;
         this.ong_vaga = ong_vaga;
         this.atividade = atividade;
         this.local = local;
         this.cod = cod;
     }
 
+
+//    public vagasHome(String titulo_vaga, String ong_vaga, String atividade, String local, int cod) {
+//        this.titulo_vaga = titulo_vaga;
+//        this.ong_vaga = ong_vaga;
+//        this.atividade = atividade;
+//        this.local = local;
+//        this.cod = cod;
+//    }
+
     // gets e sets
+    public String getCod_ong() {
+        return cod_ong;
+    }
+
+    public void setCod_ong(String cod_ong) {
+        this.cod_ong = cod_ong;
+    }
+
     public String getTitulo_vaga() {
         return titulo_vaga;
     }
