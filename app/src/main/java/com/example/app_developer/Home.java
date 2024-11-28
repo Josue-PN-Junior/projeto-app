@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_developer.adapter.AdapterListaHome;
+import com.example.app_developer.adapter.AdapterListaHomeM;
 import com.example.app_developer.databinding.ActivityHomeBinding;
 import com.example.app_developer.modelo.vagasHome;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,11 +29,14 @@ import java.util.ArrayList;
 public class Home extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityHomeBinding binding;
-    private AdapterListaHome homeListaAdapter, homeListaAdapterMinhas, homeListaAdapterVistas;
+    private AdapterListaHome homeListaAdapter;
+    private AdapterListaHomeM homeListaAdapterMinhas;
+    private AdapterListaHome homeListaAdapterVistas;
     private ArrayList<vagasHome> vagasHome = new ArrayList<vagasHome>();
     private ArrayList<vagasHome> vagasMinhas = new ArrayList<vagasHome>();
     private ArrayList<vagasHome> vagasVistas = new ArrayList<vagasHome>();
     String email, cpf;
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -64,7 +68,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         // Adpater Publi
         homeListaAdapter = new AdapterListaHome(vagasHome, this);
         recyclerViewHome.setAdapter(homeListaAdapter);
-        getVagasHome();
+        getVagasHome(0);
         if ((vagasHome.size() % 2) == 1) {
             vagasHome.add(getVagasNot());
         } else if (vagasHome.isEmpty()) {
@@ -79,9 +83,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         recyclerViewHomeMinhas.setHasFixedSize(true);
 
         // Adpater Minhas
-        homeListaAdapterMinhas = new AdapterListaHome(vagasMinhas, this);
-            recyclerViewHomeMinhas.setAdapter(homeListaAdapter);
-        getVagasHome();
+        homeListaAdapterMinhas = new AdapterListaHomeM(vagasMinhas, this);
+            recyclerViewHomeMinhas.setAdapter(homeListaAdapterMinhas);
+        getVagasHome(1);
         if ((vagasMinhas.size() % 2) == 1) {
             vagasMinhas.add(getVagasNot());
         } else if (vagasMinhas.isEmpty()) {
@@ -98,7 +102,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         // Adpater Vistas
         homeListaAdapterVistas = new AdapterListaHome(vagasVistas, this);
         recyclerViewHomeVistas.setAdapter(homeListaAdapter);
-        getVagasHome();
+        getVagasHome(2);
         if ((vagasVistas.size() % 2) == 1) {
             vagasVistas.add(getVagasNot());
         } else if (vagasVistas.isEmpty()) {
@@ -158,13 +162,19 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    private void getVagasHome() {
+    private void getVagasHome(int _c) {
 
         BancoController bd = new BancoController(getBaseContext());
+        if (_c == 0) {
+            vagasHome.addAll(bd.getVagasRecem(6));
+        } else if (_c == 1) {
+            vagasMinhas.addAll(bd.getVagasCadastradas(cpf, 6));
+        } else if (_c == 3) {
+            vagasVistas.addAll(bd.getVagasRecem(6));
+        }
 
-        vagasHome.addAll(bd.getVagasRecem(6));
-        vagasMinhas.addAll(bd.getVagasRecem(6));
-        vagasVistas.addAll(bd.getVagasRecem(6));
+        //vagasMinhas.addAll(bd.getVagasRecem(6));
+
 
 //        vagasHome vaga1 = new vagasHome(
 //                "Coleta de Alimentos",

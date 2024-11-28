@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class BancoDeDados extends SQLiteOpenHelper {
     private static final String BancoApp = "Banco_app_local";
-    private static final int VERSAO = 10;
+    private static final int VERSAO = 11;
     public BancoDeDados(Context context) {
         super(context, BancoApp, null, VERSAO);
     }
@@ -99,6 +99,7 @@ public class BancoDeDados extends SQLiteOpenHelper {
         // Inserir dados na tabela inscricoes
         String sqlInscricoes = "INSERT INTO inscricoes (codVaga, cpf, ativo) VALUES "
                 + "(1, '12345678900', 1), "
+                + "(1, '12345678999', 1), "
                 + "(2, '98765432100', 0);";
         dataBase.execSQL(sqlInscricoes);
     }

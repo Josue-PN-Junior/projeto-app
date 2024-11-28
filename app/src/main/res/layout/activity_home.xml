@@ -52,29 +52,6 @@
 
             </LinearLayout>
 
-            <!-- Vagas Minhas -->
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/azulFundoBemClaro"
-                android:orientation="vertical"
-                android:padding="2dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Minhas Vagas"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycleView_vagasMinhas"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp" />
-            </LinearLayout>
 
             <!-- Vagas Recém publicadas -->
             <LinearLayout
@@ -97,6 +74,30 @@
                     android:id="@+id/recycleView_VagasRecPubli"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <!-- Vagas Minhas -->
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/azulFundoBemClaro"
+                android:orientation="vertical"
+                android:padding="2dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Minhas Vagas"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleView_vagasMinhas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="1dp" />
             </LinearLayout>
 
