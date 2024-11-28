@@ -106,44 +106,6 @@ public class BancoController {
         return nomeOng;
     }
 
-//    public ArrayList<vagasHome> getVagasCadastradas(String _cpf, int limite) {
-//        ArrayList<vagasHome> vagasCad = new ArrayList<>();
-//        String vaga = null;
-//        SQLiteDatabase db = banco.getReadableDatabase();
-//        String query = "SELECT codVaga FROM inscricoes WHERE cpf = ? AND ativo = 1";
-//
-//        Cursor cursor = db.rawQuery(query, new String[]{_cpf});
-//        if (cursor != null && cursor.moveToFirst()) {
-//            vaga = cursor.getString(cursor.getColumnIndexOrThrow("codVaga"));
-//        }
-//
-//        cursor.close();
-//        db.close();
-//        String where = "cpf = '" + _cpf + "' and codVaga = '" + vaga + "' and ativo = 1";
-//        String[] campos = {"codVaga", "nome", "atividade", "local", "data", "ongCnpj"};
-//        String limit = String.valueOf(limite);
-//        cursor = db.query("inscricoes", campos, where, null, null, null, "data DESC", limit);
-//
-//        if (cursor != null && cursor.moveToFirst()) {
-//            do {
-//                String nome = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
-//                String codOng = cursor.getString(cursor.getColumnIndexOrThrow("ongCnpj"));
-//                String ong = getNomeOngVaga(codOng);
-//                String atividade = cursor.getString(cursor.getColumnIndexOrThrow("atividade"));
-//                String local = cursor.getString(cursor.getColumnIndexOrThrow("local"));
-//                int cod = cursor.getInt(cursor.getColumnIndexOrThrow("codVaga"));
-//
-//                vagasHome vagas = new vagasHome(nome, codOng, ong, atividade, local, cod);
-//
-//                // Adiciona a vaga à lista
-//                vagasCad.add(vagas);
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//
-//        return vagasCad;
-//    }
 
     public ArrayList<vagasHome> getVagasCadastradas(String _cpf, int limite) {
         ArrayList<vagasHome> vagasCad = new ArrayList<>();

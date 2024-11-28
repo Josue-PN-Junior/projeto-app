@@ -16,10 +16,10 @@
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".Config"
+            android:name=".VagasPesquisa"
             android:exported="false" />
         <activity
-            android:name=".VagasPesquisa"
+            android:name=".Abertura"
             android:exported="false" />
         <activity
             android:name=".Cadastro"
@@ -37,7 +37,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Abertura"
+            android:name=".Config"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

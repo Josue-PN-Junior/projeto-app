@@ -7,8 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VagasPesquisa"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
+  <!-- Barra de busca e filtro -->
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -18,7 +20,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        />
+        android:id="@+id/imgBusca" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,33 +31,70 @@
         android:paddingStart="10dp" />
 
   </LinearLayout>
+  <!-- Botão para exibir filtros -->
+  <Button
+      android:id="@+id/btnMostrarFiltros"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Exibir Filtros"
+      android:layout_marginTop="10dp"
+      android:layout_gravity="center"
+      android:backgroundTint="#FF0000"
+      android:textColor="#FFFFFF" />
+  <!-- Filtro Localização, Função e Código "ocultos ao iniciar"
+  -->
 
   <LinearLayout
+      android:id="@+id/layoutFiltros"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      android:background="#2b4f6a"
+      android:orientation="vertical"
+      android:visibility="gone"
+      android:layout_marginTop="10dp"
       android:padding="10dp">
     <EditText
-        android:layout_width="0dp"
+        android:id="@+id/editTextLocalizacao"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Filtrar por:"
-        android:background="@android:color/transparent"
-        android:padding="8dp" />
-
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
+        android:hint="Filtrar por Localização"
+        android:background="@android:color/white"
+        android:padding="8dp"/>
+    <EditText
+        android:id="@+id/editTextFuncao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Filtrar por Função"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/editTextCodigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Filtrar por Código"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:layout_marginTop="10dp"/>
+    <!-- Botão de Aplicar Filtro -->
+    <Button
+        android:id="@+id/btnAplicarFiltro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicar Filtro"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF" />
 
   </LinearLayout>
-
   <!-- Lista de vagas -->
+
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_weight="1"
-      android:background="#FFFFFF">
+      android:background="#FFFFFF"
+      android:id="@+id/scrollViewVagas">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,6 +102,7 @@
         android:padding="10dp">
       <!-- Vaga 1 -->
       <LinearLayout
+          android:id="@+id/vaga1"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:orientation="vertical"
@@ -84,17 +124,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atividades: Separar os
-
-alimentos"
-
+            android:text="Atividades: Separar os alimentos"
             android:textColor="#FFFFFF" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cod.Vaga: 12345"
             android:textColor="#FFFFFF" />
+
         <Button
             android:id="@+id/btnCandidatar1"
             android:layout_width="wrap_content"
@@ -108,6 +145,7 @@ alimentos"
       </LinearLayout>
       <!-- Vaga 2 -->
       <LinearLayout
+          android:id="@+id/vaga2"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:orientation="vertical"
@@ -129,17 +167,14 @@ alimentos"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atividades: Separação de Roupas
-
-"
-
+            android:text="Atividades: Separação de Roupas"
             android:textColor="#FFFFFF" />
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cod.Vaga: 12346"
             android:textColor="#FFFFFF" />
+
         <Button
             android:id="@+id/btnCandidatar2"
             android:layout_width="wrap_content"
@@ -151,8 +186,9 @@ alimentos"
             android:layout_marginTop="10dp" />
 
       </LinearLayout>
-      <!--Vaga 3 -->
+      <!-- Vaga 3 -->
       <LinearLayout
+          android:id="@+id/vaga3"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:orientation="vertical"
@@ -174,18 +210,15 @@ alimentos"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atividades: Separar os
-
-alimentos"
-
+            android:text="Atividades: Separar os alimentos"
             android:textColor="#FFFFFF" />
         <TextView
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:text="Cod.Vaga: 12347"
             android:textColor="#FFFFFF" />
         <Button
+
             android:id="@+id/btnCandidatar3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -198,5 +231,4 @@ alimentos"
       </LinearLayout>
     </LinearLayout>
   </ScrollView>
-
 </LinearLayout>

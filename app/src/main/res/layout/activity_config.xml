@@ -9,26 +9,24 @@
     android:padding="16dp">
 
     <!-- Título Configurações -->
+
     <LinearLayout
         android:id="@+id/linearTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="#00274D"
-
         android:gravity="center_vertical"
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="configura_es"
+            android:text="Configurações"
             android:textColor="#FFFFFF"
             android:textSize="18sp"/>
-
     </LinearLayout>
 
     <!-- Nome do usuário e botão de edição -->
@@ -44,7 +42,7 @@
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="maria_silva"
+            android:text="Maria Silva"
             android:textColor="#00274D"
             android:textSize="16sp"/>
         <TextView
@@ -52,18 +50,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="editar_"
+            android:text="Editar"
             android:textColor="#0000FF"
-            android:layout_alignParentTop="true"
-            tools:ignore="RelativeOverlap" />
-
+            android:layout_alignParentTop="true"/>
     </RelativeLayout>
 
     <!-- Telefone e botão de edição -->
     <RelativeLayout
         android:id="@+id/relativePhone"
         android:layout_width="0dp"
-
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/relativeName"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +68,7 @@
             android:id="@+id/user_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="_11_94002_8922"
+            android:text="11 94002-8922"
             android:textColor="#00274D"
             android:textSize="16sp"/>
         <TextView
@@ -81,10 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="editar__"
-            android:textColor="#0000FF"
-            tools:ignore="RelativeOverlap" />
-
+            android:text="Editar"
+            android:textColor="#0000FF"/>
     </RelativeLayout>
 
     <!-- Email e botão de edição -->
@@ -100,7 +93,7 @@
             android:id="@+id/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="maria_gmail_com"
+            android:text="maria@gmail.com"
             android:textColor="#00274D"
             android:textSize="16sp"/>
         <TextView
@@ -108,11 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="editar"
-
-            android:textColor="#0000FF"
-            tools:ignore="RelativeOverlap" />
-
+            android:text="Editar"
+            android:textColor="#0000FF"/>
     </RelativeLayout>
 
     <!-- Botões (alterar dados, notificações, localização, permissões) -->
@@ -124,14 +114,13 @@
         android:backgroundTint="#00274D"
         android:elevation="4dp"
         android:padding="12dp"
-        android:text="alterar_dados_cadastrais"
+        android:text="Alterar dados cadastrais"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/relativeEmail"
-        />
+        app:layout_constraintTop_toBottomOf="@id/relativeEmail"/>
+
     <Button
         android:id="@+id/btn_notificacoes"
         android:layout_width="0dp"
@@ -140,14 +129,13 @@
         android:backgroundTint="#00274D"
         android:elevation="4dp"
         android:padding="12dp"
-        android:text="notifica_es"
+        android:text="Notificações"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_alterar_dados"
-        />
+        app:layout_constraintTop_toBottomOf="@id/btn_alterar_dados"/>
+
     <Button
         android:id="@+id/btn_localizacao"
         android:layout_width="0dp"
@@ -156,16 +144,13 @@
         android:backgroundTint="#00274D"
         android:elevation="4dp"
         android:padding="12dp"
-
-        android:text="localiza_o"
+        android:text="Localização"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="wrap"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_notificacoes"
-        />
+        app:layout_constraintTop_toBottomOf="@id/btn_notificacoes"/>
+
     <Button
         android:id="@+id/btn_permissoes"
         android:layout_width="0dp"
@@ -174,36 +159,11 @@
         android:backgroundTint="#00274D"
         android:elevation="4dp"
         android:padding="12dp"
-        android:text="permiss_es"
+        android:text="Permissões"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="wrap"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_localizacao"
-        />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigationConfig"
-        style="@style/CustomBottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/bottom_nav_background"
-        app:itemBackground="@drawable/bottom_nav_item_background"
-        app:itemIconSize="24dp"
-        app:itemIconTint="@drawable/bottom_nav_item_color"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemTextAppearance="@color/black"
-        app:itemTextColor="@android:color/transparent"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        android:layout_marginBottom="0dp" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/btn_localizacao"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
