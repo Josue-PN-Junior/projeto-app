@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/azulFundoBemClaro"
+    android:orientation="vertical"
+    android:padding="9dp"
+
+    >
+
+
+    <LinearLayout
+        android:id="@+id/homeItenLista"
+        android:layout_width="190dp"
+        android:layout_height="200dp"
+        android:background="@drawable/arredondar"
+        android:backgroundTint="@color/azulFundo"
+        android:orientation="vertical"
+        android:padding="2dp"
+
+        >
+        <!-- Titulo -->
+        <TextView
+            android:id="@+id/home_tituloItenLista"
+
+            android:layout_marginHorizontal="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Titulo"
+            android:textAlignment="center"
+
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <!-- Ong -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="1dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="18dp"
+                android:text="Ong: "
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/home_ongItenLista"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Banco"
+                android:textSize="18dp"
+                />
+
+        </LinearLayout>
+
+        <!-- Atividade -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="1dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="18dp"
+                android:text="Atividade: "
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/home_atividadeItenLista"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Banco"
+                android:textSize="18dp"
+                />
+
+        </LinearLayout>
+
+        <!-- Local -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="1dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="18dp"
+                android:text="Local: "
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/home_localItenLista"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Banco"
+                android:textSize="18dp"
+                />
+
+        </LinearLayout>
+
+        <!-- Local -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="1dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="18dp"
+                android:text="Cod: "
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/home_codItenLista"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="454"
+                android:textSize="18dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
