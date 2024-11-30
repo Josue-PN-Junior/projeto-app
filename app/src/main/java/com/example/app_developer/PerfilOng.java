@@ -3,8 +3,11 @@ package com.example.app_developer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +17,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PerfilOng extends AppCompatActivity {
 
+    private DataManager dataManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_perfil_ong);
+
+        dataManager = new DataManager(this);
+        dataManager.open(); // Abre o banco de dados
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -100,6 +110,31 @@ public class PerfilOng extends AppCompatActivity {
                 Intent intent = new Intent(PerfilOng.this, Home.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
+        });
+
+        // Encontrar o EditText (editTextAtividades) para o usuário digitar a descrição da atividade
+        EditText editTextDescricaoAtividadeONG = findViewById(R.id.editTextText);
+
+        // Encontrar o Button (buttonSalvarAtividade) para salvar a atividade
+        Button buttonSalvarAtividadeONG = findViewById(R.id.button6);
+
+        // Ler dados da tabela de atividades do banco de dados e preencher o EditText com as atividades
+        String atividadesSalvasONG = dataManager.readDescircaoONG();  // Use readAtividades() para ler da tabela de atividades
+        editTextDescricaoAtividadeONG.setText(atividadesSalvasONG);  // Preenche o EditText com as atividades salvas
+
+        // Configurar o clique do botão para salvar a atividade
+        buttonSalvarAtividadeONG.setOnClickListener(v -> {
+            // Obter o texto digitado pelo usuário no EditText
+            String descricaoAtividade = editTextDescricaoAtividadeONG.getText().toString();
+
+            // Usar o DataManager para salvar ou atualizar a atividade no banco
+            dataManager.saveDescricaoOng(descricaoAtividade);  // Use saveAtividade() para salvar na tabela de atividades
+
+            // Exibir a atividade no próprio EditText
+            editTextDescricaoAtividadeONG.setText(descricaoAtividade);  // Atualiza o EditText com o texto inserido
+
+            // Exibir uma mensagem Toast confirmando que a atividade foi salva
+            Toast.makeText(PerfilOng.this, "Atividade salva com sucesso!", Toast.LENGTH_SHORT).show();
         });
 
         // Encontrar o ImageView para VagasVoluntarios (imageView9)

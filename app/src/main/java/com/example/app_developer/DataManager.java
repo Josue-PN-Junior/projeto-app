@@ -1,9 +1,11 @@
 package com.example.app_developer;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DataManager {
 
@@ -59,6 +61,51 @@ public class DataManager {
         }
     }
 
+    // Método para salvar dados de atividade
+    public void saveDescricaoOng(String newText) {
+        // Limpar a tabela antes de inserir a nova atividade
+        database.delete(CriaBanco.TABLE_DESCRICAO, null, null);  // Deleta todas as linhas da tabela
+
+        // Inserir a nova atividade
+        ContentValues values = new ContentValues();
+        values.put(CriaBanco.COLUMN_DESCRICAO, newText);  // Coloca o novo texto na coluna
+        long rowId = database.insert(CriaBanco.TABLE_DESCRICAO, null, values);  // Insere a nova atividade na tabela
+
+        // Verifique se a inserção foi bem-sucedida
+        if (rowId == -1) {
+            // A inserção falhou
+            System.out.println("Erro ao salvar a atividade.");
+        }
+    }
+    // Método para salvar dados de vaga (com possibilidade de atualizar)
+    public void saveVaga(String titulo, String instituicao, String local, String data,
+                         String horario, String requisitos, String descricao, String id) {
+        ContentValues values = new ContentValues();
+        values.put(CriaBanco.COLUMN_VAGA_TITULO, titulo);
+        values.put(CriaBanco.COLUMN_VAGA_INSTITUICAO, instituicao);
+        values.put(CriaBanco.COLUMN_VAGA_LOCAL, local);
+        values.put(CriaBanco.COLUMN_VAGA_DATA, data);
+        values.put(CriaBanco.COLUMN_VAGA_HORARIO, horario);
+        values.put(CriaBanco.COLUMN_VAGA_REQUISITOS, requisitos);
+        values.put(CriaBanco.COLUMN_VAGA_DESCRICAO, descricao);
+
+        // Verifica se a vaga com o mesmo ID já existe
+        int rowsUpdated = database.update(CriaBanco.TABLE_VAGAS, values,
+                CriaBanco.COLUMN_VAGA_ID + " = ?", new String[]{id});
+
+        if (rowsUpdated == 0) {
+            // Se não houve atualização, significa que não encontrou a vaga com esse ID, então insere
+            long result = database.insert(CriaBanco.TABLE_VAGAS, null, values);
+            if (result == -1) {
+                System.out.println("Erro ao salvar a vaga.");
+            } else {
+                System.out.println("Vaga salva com sucesso! ID gerado: " + result);
+            }
+        } else {
+            System.out.println("Vaga atualizada com sucesso! Linhas afetadas: " + rowsUpdated);
+        }
+    }
+
     // Ler dados da tabela de descrição
     public String readData() {
         String result = "";
@@ -99,5 +146,53 @@ public class DataManager {
             cursor2.close();  // Fecha o cursor depois de usar
         }
         return resultado;
+    }
+
+    // Ler dados da tabela de descrição ONG
+    public String readDescircaoONG() {
+        String resultado2 = "";
+        Cursor cursor3 = database.query(CriaBanco.TABLE_DESCRICAO,
+                new String[]{CriaBanco.COLUMN_DESCRICAO},
+                null, null, null, null, null);
+
+        if (cursor3 != null) {
+            if (cursor3.moveToFirst()) {
+                int columnIndex = cursor3.getColumnIndex(CriaBanco.COLUMN_DESCRICAO);  // Obtém o índice da coluna
+                if (columnIndex != -1) {
+                    do {
+                        resultado2 += cursor3.getString(columnIndex) + "\n";  // Adiciona o valor da coluna ao resultado
+                    } while (cursor3.moveToNext());
+                }
+            }
+            cursor3.close();  // Fecha o cursor depois de usar
+        }
+        return resultado2;
+    }
+
+    // Ler dados da tabela de vagas
+    @SuppressLint("Range")
+    public String[] readVaga() {
+        String[] vagaDados = new String[8]; // Array com 8 campos: id, titulo, instituicao, local, data, horario, requisitos, descricao
+
+        // Consulta para pegar uma vaga (aqui usando SQL direto, mas você pode usar qualquer método que retornar um Cursor)
+        String query = "SELECT * FROM " + CriaBanco.TABLE_VAGAS + " LIMIT 1";  // Exemplo de consulta SQL
+        Cursor cursor = database.rawQuery(query, null);  // Usando a variável correta 'database'
+
+        if (cursor != null && cursor.moveToFirst()) {
+            // Preenche o array com os dados da vaga
+            vagaDados[0] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_ID));
+            vagaDados[1] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_TITULO));
+            vagaDados[2] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_INSTITUICAO));
+            vagaDados[3] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_LOCAL));
+            vagaDados[4] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DATA));
+            vagaDados[5] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_HORARIO));
+            vagaDados[6] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_REQUISITOS));
+            vagaDados[7] = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DESCRICAO));
+        } else {
+            Log.e("Cursor", "Erro: Nenhuma vaga encontrada ou erro na consulta SQL");
+        }
+
+        cursor.close();
+        return vagaDados; // Retorna o array com os dados da vaga
     }
 }

@@ -41,9 +41,6 @@
             android:exported="true" />
 
 
-        <activity
-            android:name=".activity_vagasong"
-            android:exported="true" />
 
 
         <activity
@@ -58,10 +55,6 @@
             android:exported="true"/>
 
 
-
-        <activity
-            android:name=".formularioong"
-            android:exported="true"/>
 
         <activity
             android:name=".PopUP"
@@ -85,8 +78,23 @@
             android:name=".VagasVoluntarios"
             android:exported="true"/>
 
+
         <activity
             android:name=".MainPerfilVoluntarioActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".PerfilOng"
+            android:exported="true"/>
+
+
+        <activity
+            android:name=".formularioong"
+            android:exported="true"/>
+
+
+        <activity
+            android:name=".activity_vagasong"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -94,16 +102,10 @@
             </intent-filter>
         </activity>
 
-
-
-        <activity
-        android:name=".PerfilOng"
-        android:exported="true"/>
-
-
         <activity
             android:name=".atividadesrealizadasdetalhes"
             android:exported="true"/>
+
 
     </application>
 

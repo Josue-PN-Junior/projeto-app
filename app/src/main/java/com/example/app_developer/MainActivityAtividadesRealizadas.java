@@ -115,7 +115,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             String descricaoAtividade = editTextDescricaoAtividade.getText().toString();
 
             // Usar o DataManager para salvar ou atualizar a atividade no banco
-            dataManager.saveAtividade(descricaoAtividade);  // Use saveAtividade() para salvar na tabela de atividades
+            dataManager.saveDescricaoOng(descricaoAtividade);  // Use saveAtividade() para salvar na tabela de atividades
 
             // Exibir a atividade no próprio EditText
             editTextDescricaoAtividade.setText(descricaoAtividade);  // Atualiza o EditText com o texto inserido

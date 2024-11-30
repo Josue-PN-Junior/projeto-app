@@ -201,11 +201,12 @@
         android:layout_marginTop="33dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Descrição"
+        android:hint="Descrição"
         android:textAlignment="textStart"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="6dp" />
+        tools:layout_editor_absoluteX="6dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView13"

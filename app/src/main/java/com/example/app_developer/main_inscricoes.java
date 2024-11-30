@@ -1,12 +1,15 @@
 package com.example.app_developer;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -36,6 +39,7 @@ public class main_inscricoes extends AppCompatActivity {
                 startActivity(intent);  // Inicia a Home
             }
         });
+
 
         // Encontrar o ImageView para VagasVoluntarios (imageView9)
         ImageView imageViewVagas = findViewById(R.id.imageView14);
@@ -151,5 +155,47 @@ public class main_inscricoes extends AppCompatActivity {
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
+
+
+        // Botão "Cancelar Vaga" 3
+        Button button3 = findViewById(R.id.button);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCancelDialog(); // Chama o método para mostrar o diálogo
+            }
+        });
+
+        // Botão "Cancelar Vaga" 4
+        Button button4 = findViewById(R.id.button2);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCancelDialog(); // Chama o método para mostrar o diálogo
+            }
+        });
     }
-}
+
+    // Método para exibir o AlertDialog de confirmação
+    private void showCancelDialog() {
+        // Criação do AlertDialog
+        new AlertDialog.Builder(this)
+                .setMessage("Deseja cancelar a vaga?")
+                .setCancelable(false) // Para evitar que o usuário feche clicando fora
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Aqui você pode colocar a ação a ser tomada ao clicar em SIM
+                        // Exemplo: cancelar a vaga
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Ação ao clicar em NÃO, não faz nada
+                        dialog.dismiss();
+                    }
+                })
+                .create()
+                .show(); // Exibe o AlertDialog
+    }
+    }
