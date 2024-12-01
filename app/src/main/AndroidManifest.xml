@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_developer"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".vagaunificado"
+            android:exported="false" />
         <!-- Outras Activities continuam a ser configuradas normalmente -->
         <activity
             android:name=".Config"
@@ -39,74 +40,50 @@
         <activity
             android:name=".Home"
             android:exported="true" />
-
-
-
-
         <activity
             android:name=".perfil_ong_atividadesrealizadas"
-            android:exported="true"/>
-
-
-
-
+            android:exported="true" />
         <activity
             android:name=".perfil_ong_atividadesrealizadasdetalhamento"
-            android:exported="true"/>
-
-
-
+            android:exported="true" />
         <activity
             android:name=".PopUP"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".activity_atividadesrealizadasdetalhes"
-            android:exported="true"/>
-
-
+            android:exported="true" />
         <activity
             android:name=".main_inscricoes"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".MainActivityAtividadesRealizadas"
-            android:exported="true"/>
-
-
+            android:exported="true" />
         <activity
             android:name=".VagasVoluntarios"
-            android:exported="true"/>
-
-
+            android:exported="true" />
         <activity
             android:name=".MainPerfilVoluntarioActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".PerfilOng"
-            android:exported="true"/>
-
-
+            android:exported="true" />
         <activity
             android:name=".formularioong"
-            android:exported="true"/>
-
+            android:exported="true" />
 
         <activity
             android:name=".activity_vagasong"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".atividadesrealizadasdetalhes"
-            android:exported="true"/>
-
-
+            android:exported="true" />
     </application>
+
 
 </manifest>

@@ -1,133 +1,111 @@
 package com.example.app_developer;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class activity_vagasong extends AppCompatActivity {
+
+    private LinearLayout vagasContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vagasong); // Certifique-se de que o layout seja o correto
+        setContentView(R.layout.activity_vagasong);
 
-        ImageView imageViewSeta = findViewById(R.id.imageView7);
+        // Inicialize o LinearLayout que irá conter as vagas
+        vagasContainer = findViewById(R.id.vagasContainer);
 
-        // Configurar o clique para VagasVoluntarios
-        imageViewSeta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(activity_vagasong.this, VagasPesquisa.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
+        // Exemplo de dados para as vagas
+        List<Vaga> vagas = new ArrayList<>();
+        vagas.add(new Vaga("Arrecadação de Brinquedos", "ONG: Crescer", "Local: São Paulo"));
+        vagas.add(new Vaga("Reforma da Cozinha", "ONG: Herdar", "Local: São Paulo"));
+        vagas.add(new Vaga("Roda de Leitura", "ONG: Herdar", "Local: São Paulo"));
 
-        ImageView imageViewform = findViewById(R.id.imageView25);
-
-        // Configurar o clique para a Home
-        imageViewform.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a Home (Home.java)
-                Intent intent = new Intent(activity_vagasong.this, formularioong.class);
-                startActivity(intent);  // Inicia a Home
-            }
-        });
-
-        TextView textViewAtividadesRealizadasVoluntario = findViewById(R.id.textView28);
-
-
-        textViewAtividadesRealizadasVoluntario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(activity_vagasong.this, atividadesrealizadasdetalhes.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        TextView textViewAtividadesRealizadasVoluntario2 = findViewById(R.id.textView29);
-
-
-        textViewAtividadesRealizadasVoluntario2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(activity_vagasong.this, atividadesrealizadasdetalhes.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        TextView textViewAtividadesRealizadasVoluntario3 = findViewById(R.id.textView34);
-
-
-        textViewAtividadesRealizadasVoluntario3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(activity_vagasong.this, atividadesrealizadasdetalhes.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-
-
-        // Botão "Cancelar Vaga" 3
-        Button button3 = findViewById(R.id.button3);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCancelDialog(); // Chama o método para mostrar o diálogo
-            }
-        });
-
-        // Botão "Cancelar Vaga" 4
-        Button button4 = findViewById(R.id.button4);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCancelDialog(); // Chama o método para mostrar o diálogo
-            }
-        });
-
-        // Botão "Cancelar Vaga" 5
-        Button button5 = findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCancelDialog(); // Chama o método para mostrar o diálogo
-            }
-        });
+        // Adiciona as vagas dinamicamente
+        for (Vaga vaga : vagas) {
+            addVagaView(vaga);
+        }
     }
 
-    // Método para exibir o AlertDialog de confirmação
-    private void showCancelDialog() {
-        // Criação do AlertDialog
-        new AlertDialog.Builder(this)
-                .setMessage("Deseja cancelar a vaga?")
-                .setCancelable(false) // Para evitar que o usuário feche clicando fora
-                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Aqui você pode colocar a ação a ser tomada ao clicar em SIM
-                        // Exemplo: cancelar a vaga
+    // Função para adicionar uma vaga no layout
+    private void addVagaView(Vaga vaga) {
+        // Infla o layout do item da vaga
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View vagaView = inflater.inflate(R.layout.activity_vaga, null);
+
+        // Referências para os TextViews e Button
+        TextView textVaga = vagaView.findViewById(R.id.textVaga);
+        TextView textOng = vagaView.findViewById(R.id.textOng);
+        TextView textLocal = vagaView.findViewById(R.id.textLocal);
+        Button buttonCancelar = vagaView.findViewById(R.id.buttonCancelarVaga);
+        TextView textVerDetalhes = vagaView.findViewById(R.id.textView39);  // ID para o "Ver Detalhes"
+
+        // Definindo os dados da vaga nos TextViews
+        textVaga.setText(vaga.getVagaName());  // Nome da vaga
+        textOng.setText(vaga.getOng());
+        textLocal.setText(vaga.getLocal());
+
+        // Configurar o comportamento do botão de cancelar vaga
+        buttonCancelar.setOnClickListener(v -> {
+            // Criar o AlertDialog
+            new AlertDialog.Builder(activity_vagasong.this)
+                    .setTitle("Confirmar Cancelamento")
+                    .setMessage("Você tem certeza que deseja cancelar essa vaga?")
+                    .setPositiveButton("Sim", (dialog, which) -> {
+                        // Se o usuário confirmar, removemos a vaga do layout
+                        vagasContainer.removeView(vagaView);
+                    })
+                    .setNegativeButton("Não", (dialog, which) -> {
+                        // Se o usuário cancelar, nada acontece
                         dialog.dismiss();
-                    }
-                })
-                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Ação ao clicar em NÃO, não faz nada
-                        dialog.dismiss();
-                    }
-                })
-                .create()
-                .show(); // Exibe o AlertDialog
+                    })
+                    .show();
+        });
+
+        // Adicionando o comportamento de abrir a Activity de detalhes quando o texto "Ver Detalhes" for clicado
+        textVerDetalhes.setOnClickListener(v -> {
+            // Criar a Intent para abrir a Activity de detalhes
+            Intent intent = new Intent(activity_vagasong.this, atividadesrealizadasdetalhes.class);
+            startActivity(intent);  // Inicia a nova Activity
+        });
+
+        // Adiciona a view inflada no LinearLayout
+        vagasContainer.addView(vagaView);
+    }
+
+    // Classe para representar uma vaga
+    public static class Vaga {
+        private String vagaName;
+        private String ong;
+        private String local;
+
+        // Construtor
+        public Vaga(String vagaName, String ong, String local) {
+            this.vagaName = vagaName;
+            this.ong = ong;
+            this.local = local;
+        }
+
+        public String getVagaName() {
+            return vagaName;  // Apenas o nome da vaga, sem prefixos
+        }
+
+        public String getOng() {
+            return ong;
+        }
+
+        public String getLocal() {
+            return local;
+        }
     }
 }

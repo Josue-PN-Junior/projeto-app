@@ -97,12 +97,12 @@ public class DataManager {
             // Se não houve atualização, significa que não encontrou a vaga com esse ID, então insere
             long result = database.insert(CriaBanco.TABLE_VAGAS, null, values);
             if (result == -1) {
-                System.out.println("Erro ao salvar a vaga.");
+                Log.e("DataManager", "Erro ao salvar a vaga.");
             } else {
-                System.out.println("Vaga salva com sucesso! ID gerado: " + result);
+                Log.i("DataManager", "Vaga salva com sucesso! ID gerado: " + result);
             }
         } else {
-            System.out.println("Vaga atualizada com sucesso! Linhas afetadas: " + rowsUpdated);
+            Log.i("DataManager", "Vaga atualizada com sucesso! Linhas afetadas: " + rowsUpdated);
         }
     }
 
@@ -195,4 +195,31 @@ public class DataManager {
         cursor.close();
         return vagaDados; // Retorna o array com os dados da vaga
     }
+
+    // Método para ler todas as vagas disponíveis
+    @SuppressLint("Range")
+    public String[] readAllVagas() {
+        String[] vagas = new String[8];  // Array para armazenar os dados da vaga
+        String query = "SELECT * FROM " + CriaBanco.TABLE_VAGAS;  // Query para buscar todas as vagas
+        Cursor cursor = database.rawQuery(query, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int i = 0;
+            do {
+                vagas[i++] = "ID: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_ID)) +
+                        ", Título: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_TITULO)) +
+                        ", Instituição: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_INSTITUICAO)) +
+                        ", Local: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_LOCAL)) +
+                        ", Data: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DATA)) +
+                        ", Horário: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_HORARIO)) +
+                        ", Requisitos: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_REQUISITOS)) +
+                        ", Descrição: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DESCRICAO));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return vagas; // Retorna todas as vagas no formato de string
+    }
 }
+
+

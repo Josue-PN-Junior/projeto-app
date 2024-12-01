@@ -164,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
-        android:text="Vaga: Vaga: Reforma da biblioteca"
+        android:text="Vaga: Reforma da biblioteca"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
