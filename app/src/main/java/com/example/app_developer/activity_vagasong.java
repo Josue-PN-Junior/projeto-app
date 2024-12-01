@@ -28,7 +28,7 @@ public class activity_vagasong extends AppCompatActivity {
         vagas = loadVagas();
 
         // Criar o Adapter e associar com a RecyclerView
-        vagaAdpter = new VagaAdpter(vagas);
+        vagaAdpter = new VagaAdpter(this, vagas);
         recyclerView.setAdapter(vagaAdpter);
     }
 
@@ -44,7 +44,7 @@ public class activity_vagasong extends AppCompatActivity {
                 // Dividir a string para extrair os dados da vaga
                 String[] dadosVaga = vagaData.split(";");
 
-                // Criar a vaga a partir dos dados
+                // Verificar se os dados possuem a quantidade esperada
                 if (dadosVaga.length == 7) {
                     Vaga vaga = new Vaga(
                             dadosVaga[0], // titulo

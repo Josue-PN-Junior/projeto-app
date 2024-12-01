@@ -30,6 +30,21 @@ public class DataManager {
         dbHelper.close();  // Fecha o banco de dados helper
     }
 
+    // Método para excluir uma vaga do banco de dados
+    public boolean deleteVaga(String vagaId) {
+        try {
+            // Deleta a vaga da tabela pelo ID
+            int rowsDeleted = database.delete(CriaBanco.TABLE_VAGAS,
+                    CriaBanco.COLUMN_VAGA_ID + " = ?", new String[]{vagaId});
+
+            // Retorna true se pelo menos uma linha foi deletada
+            return rowsDeleted > 0;
+        } catch (Exception e) {
+            Log.e("DataManager", "Erro ao excluir vaga", e);
+            return false;
+        }
+    }
+
     // Método genérico para salvar dados em qualquer tabela
     private boolean saveDataInTable(String tableName, String columnName, String newText) {
         try {
