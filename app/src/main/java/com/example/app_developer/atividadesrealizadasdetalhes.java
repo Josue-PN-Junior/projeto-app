@@ -79,7 +79,7 @@ public class atividadesrealizadasdetalhes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(atividadesrealizadasdetalhes.this, VagasVoluntarios.class);
+                Intent intent = new Intent(atividadesrealizadasdetalhes.this, activity_vagasong.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });

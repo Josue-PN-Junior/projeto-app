@@ -37,17 +37,6 @@
         tools:layout_editor_absoluteX="-19dp"
         tools:layout_editor_absoluteY="-47dp" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:text="Conexão Solidária"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="13dp" />
-
     <!-- Imagem do logo da aplicação -->
 
     <!-- Imagem para a seta -->
@@ -63,7 +52,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -86,5 +75,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.669"
         app:srcCompat="@drawable/seta_direita" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="118dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="588dp"
+        android:text="Nova Vaga"
+        android:textStyle="bold"
+        app:backgroundTint="#2F4558"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
