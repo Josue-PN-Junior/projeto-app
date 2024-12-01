@@ -67,12 +67,9 @@
         <activity
             android:name=".PerfilOng"
             android:exported="true" />
-        <activity
-            android:name=".formularioong"
-            android:exported="true" />
 
         <activity
-            android:name=".activity_vagasong"
+            android:name=".formularioong"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -80,6 +77,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity_vagasong"
+            android:exported="true"/>
+
+        <activity
+            android:name=".VagaAdpter"
+            android:exported="true"/>
+
         <activity
             android:name=".atividadesrealizadasdetalhes"
             android:exported="true" />
