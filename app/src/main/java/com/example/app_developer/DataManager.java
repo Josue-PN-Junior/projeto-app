@@ -196,7 +196,7 @@ public class DataManager {
 
             if (cursor != null && cursor.moveToFirst()) {
                 do {
-                    String id = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_ID));
+
                     String titulo = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_TITULO));
                     String instituicao = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_INSTITUICAO));
                     String local = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_LOCAL));
@@ -204,9 +204,10 @@ public class DataManager {
                     String horario = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_HORARIO));
                     String requisitos = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_REQUISITOS));
                     String descricao = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DESCRICAO));
+                    String id = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_ID));
 
                     // Criando o objeto Vaga e adicionando à lista
-                    Vaga vaga = new Vaga(id, titulo, instituicao, local, data, horario, requisitos, descricao);
+                    Vaga vaga = new Vaga(titulo, instituicao, local, data, horario, requisitos, descricao, id);
                     vagasList.add(vaga);  // Adiciona o objeto vaga à lista
                 } while (cursor.moveToNext());
             }

@@ -32,30 +32,31 @@ public class SegundaVagaAdpter extends RecyclerView.Adapter<SegundaVagaAdpter.Va
     public void onBindViewHolder(VagaViewHolder holder, int position) {
         Vaga vaga = vagaList.get(position);
 
-        // Preenche os dados da vaga
-        holder.textTitulo.setText(vaga.getTitulo());
-        holder.textInstituicao.setText(vaga.getInstituicao());
-        holder.textLocal.setText(vaga.getLocal());
+        // Preenche os campos com a ordem correta:
+        holder.textTitulo.setText(vaga.getTitulo());           // Título da vaga
+        holder.textInstituicao.setText(vaga.getInstituicao()); // ONG
+        holder.textLocal.setText(vaga.getLocal());             // Local
 
-        // Configura o clique no TextView de "Ver detalhes"
+        // Configura o clique no TextView "Ver detalhes"
         holder.textVerDetalhes.setOnClickListener(v -> {
             // Cria a Intent para abrir a atividade de detalhes
-            Intent intent = new Intent(context, atividadesrealizadasdetalhes.class); // Corrigido o nome da classe
+            Intent intent = new Intent(context, atividadesrealizadasdetalhes.class);
 
             // Passa os dados da vaga para a nova Activity
-            intent.putExtra("vaga_name", vaga.getTitulo());
-            intent.putExtra("ong", vaga.getInstituicao());
-            intent.putExtra("local", vaga.getLocal());
-            intent.putExtra("data", vaga.getData());
-            intent.putExtra("horario", vaga.getHorario());
-            intent.putExtra("requisitos", vaga.getRequisitos());
-            intent.putExtra("descricao", vaga.getDetalhamento());
-            intent.putExtra("idvaga", vaga.getIdvaga());
+            intent.putExtra("vaga_name", vaga.getTitulo()); // Título
+            intent.putExtra("ong", vaga.getInstituicao());  // ONG
+            intent.putExtra("local", vaga.getLocal());      // Local
+            intent.putExtra("data", vaga.getData());        // Data
+            intent.putExtra("horario", vaga.getHorario());  // Horário
+            intent.putExtra("requisitos", vaga.getRequisitos()); // Requisitos
+            intent.putExtra("descricao", vaga.getDetalhamento()); // Descrição
+            intent.putExtra("idvaga", vaga.getIdvaga());    // ID da vaga
 
             // Inicia a Activity
             context.startActivity(intent);
         });
     }
+
 
     @Override
     public int getItemCount() {

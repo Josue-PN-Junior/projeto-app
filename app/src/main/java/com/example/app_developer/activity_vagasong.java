@@ -1,8 +1,12 @@
 
 package com.example.app_developer;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +35,19 @@ public class activity_vagasong extends AppCompatActivity {
         // Criar o Adapter e associar com a RecyclerView
         vagaAdpter = new VagaAdpter(this, vagas);
         recyclerView.setAdapter(vagaAdpter);
+
+        Button buttonNovaVaga = findViewById(R.id.button7);
+        buttonNovaVaga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Abrir a Activity de formulário
+                Intent intent = new Intent(activity_vagasong.this, formularioong.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     // Método para carregar as vagas salvas usando SharedPreferences
     private List<Vaga> loadVagas() {
