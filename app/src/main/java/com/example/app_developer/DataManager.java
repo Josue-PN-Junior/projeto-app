@@ -7,6 +7,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataManager {
 
     private SQLiteDatabase database;
@@ -183,8 +186,8 @@ public class DataManager {
 
     // Método para ler todas as vagas disponíveis
     @SuppressLint("Range")
-    public String[] readAllVagas() {
-        String[] vagas = new String[8];  // Array para armazenar os dados da vaga
+    public List<Vaga> readAllVagas() {
+        List<Vaga> vagasList = new ArrayList<>();  // Lista para armazenar as vagas como objetos
         String query = "SELECT * FROM " + CriaBanco.TABLE_VAGAS;  // Query para buscar todas as vagas
         Cursor cursor = null;
 
@@ -192,16 +195,19 @@ public class DataManager {
             cursor = database.rawQuery(query, null);
 
             if (cursor != null && cursor.moveToFirst()) {
-                int i = 0;
                 do {
-                    vagas[i++] = "ID: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_ID)) +
-                            ", Título: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_TITULO)) +
-                            ", Instituição: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_INSTITUICAO)) +
-                            ", Local: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_LOCAL)) +
-                            ", Data: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DATA)) +
-                            ", Horário: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_HORARIO)) +
-                            ", Requisitos: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_REQUISITOS)) +
-                            ", Descrição: " + cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DESCRICAO));
+                    String id = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_ID));
+                    String titulo = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_TITULO));
+                    String instituicao = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_INSTITUICAO));
+                    String local = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_LOCAL));
+                    String data = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DATA));
+                    String horario = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_HORARIO));
+                    String requisitos = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_REQUISITOS));
+                    String descricao = cursor.getString(cursor.getColumnIndex(CriaBanco.COLUMN_VAGA_DESCRICAO));
+
+                    // Criando o objeto Vaga e adicionando à lista
+                    Vaga vaga = new Vaga(id, titulo, instituicao, local, data, horario, requisitos, descricao);
+                    vagasList.add(vaga);  // Adiciona o objeto vaga à lista
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {
@@ -210,6 +216,6 @@ public class DataManager {
             if (cursor != null) cursor.close();
         }
 
-        return vagas; // Retorna todas as vagas no formato de string
+        return vagasList;  // Retorna a lista de objetos Vaga
     }
 }
