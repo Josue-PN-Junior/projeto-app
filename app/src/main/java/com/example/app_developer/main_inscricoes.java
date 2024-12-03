@@ -2,10 +2,6 @@ package com.example.app_developer;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +13,7 @@ import java.util.List;
 public class main_inscricoes extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private VagaAdapter vagaAdapter;
+    private TerceiraVagaAdpter TerceiraVagaAdpter;  // Usando o SegundaVagaAdpter
     private List<Vaga> vagasList = new ArrayList<>();
 
     @Override
@@ -28,73 +24,27 @@ public class main_inscricoes extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Recupera a lista de vagas salvas no SharedPreferences
+        // Recupera as vagas salvas no SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("vaga_pref", MODE_PRIVATE);
-        String vagasSalvas = sharedPreferences.getString("vagas_lista", "");
+        String vagaName = sharedPreferences.getString("vaga_name", null);
 
-        if (!vagasSalvas.isEmpty()) {
-            String[] vagasArray = vagasSalvas.split("\\|\\|");  // Separa as vagas usando "||"
+        // Se existir uma vaga salva, adicione-a à lista
+        if (vagaName != null) {
+            String ong = sharedPreferences.getString("ong", "");
+            String local = sharedPreferences.getString("local", "");
+            String data = sharedPreferences.getString("data", "");
+            String horario = sharedPreferences.getString("horario", "");
+            String requisitos = sharedPreferences.getString("requisitos", "");
+            String descricao = sharedPreferences.getString("descricao", "");
+            String idvaga = sharedPreferences.getString("idvaga", "");
 
-            for (String vagaData : vagasArray) {
-                String[] dadosVaga = vagaData.split(";");
-                Vaga vaga = new Vaga(dadosVaga[0], dadosVaga[1], dadosVaga[2], dadosVaga[3], dadosVaga[4], dadosVaga[5], dadosVaga[6]);
-                vagasList.add(vaga);
-            }
+            // Cria a nova vaga e adiciona à lista
+            Vaga vaga = new Vaga(vagaName, ong, local, data, horario, requisitos, descricao, idvaga);
+            vagasList.add(vaga);
         }
 
-        vagaAdapter = new VagaAdapter(vagasList);
-        recyclerView.setAdapter(vagaAdapter);
-    }
-
-    // Classe para representar uma Vaga
-    public static class Vaga {
-        String titulo, instituicao, local, data, horario, requisitos, descricao;
-
-        public Vaga(String titulo, String instituicao, String local, String data, String horario, String requisitos, String descricao) {
-            this.titulo = titulo;
-            this.instituicao = instituicao;
-            this.local = local;
-            this.data = data;
-            this.horario = horario;
-            this.requisitos = requisitos;
-            this.descricao = descricao;
-        }
-    }
-
-    // Adapter para o RecyclerView
-    public static class VagaAdapter extends RecyclerView.Adapter<VagaAdapter.VagaViewHolder> {
-
-        private List<Vaga> vagasList;
-
-        public VagaAdapter(List<Vaga> vagasList) {
-            this.vagasList = vagasList;
-        }
-
-        @Override
-        public VagaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_vagainscricaounificado, parent, false);
-            return new VagaViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(VagaViewHolder holder, int position) {
-            Vaga vaga = vagasList.get(position);
-            holder.textVaga.setText( vaga.titulo + "\n" +
-                    "Instituição: " + vaga.instituicao);
-                   }
-
-        @Override
-        public int getItemCount() {
-            return vagasList.size();
-        }
-
-        public static class VagaViewHolder extends RecyclerView.ViewHolder {
-            TextView textVaga;
-
-            public VagaViewHolder(View itemView) {
-                super(itemView);
-                textVaga = itemView.findViewById(R.id.textVaga);
-            }
-        }
+        // Configura o adapter e atualiza a RecyclerView
+        TerceiraVagaAdpter = new TerceiraVagaAdpter(this, vagasList);  // Usando o SegundaVagaAdpter
+        recyclerView.setAdapter(TerceiraVagaAdpter);  // Configura o adapter
     }
 }

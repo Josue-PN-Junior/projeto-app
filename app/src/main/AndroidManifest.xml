@@ -15,6 +15,10 @@
         <activity
             android:name=".vagainscricaounificado"
             android:exported="false" />
+
+        <activity
+            android:name=".TerceiraVagaAdpter"
+            android:exported="false" />
         <activity
             android:name=".activity_vagasong"
             android:exported="false" />
