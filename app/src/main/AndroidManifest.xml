@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,28 @@
         <activity
             android:name=".Home"
             android:exported="false" />
+        <activity
+            android:name=".vagainscricaounificado"
+            android:exported="false" />
+
+        <activity
+            android:name=".TerceiraVagaAdpter"
+            android:exported="false" />
+        <activity
+            android:name=".activity_vagasong"
+            android:exported="false" />
+        <activity
+            android:name=".SegundaVagaAdpter"
+            android:exported="true" />
+        <activity
+            android:name=".vagaVoluntario"
+            android:exported="true" />
+        <activity
+            android:name=".vagaunificado"
+            android:exported="false" /> <!-- Outras Activities continuam a ser configuradas normalmente -->
+        <activity
+            android:name=".Config"
+            android:exported="true" />
         <activity
             android:name=".VagasPesquisa"
             android:exported="false" />
@@ -36,9 +58,45 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
-            android:name=".Config"
-            android:exported="true" >
+            android:name=".perfil_ong_atividadesrealizadas"
+            android:exported="true" />
+        <activity
+            android:name=".perfil_ong_atividadesrealizadasdetalhamento"
+            android:exported="true" />
+        <activity
+            android:name=".PopUP"
+            android:exported="true" />
+        <activity
+            android:name=".activity_atividadesrealizadasdetalhes"
+            android:exported="true" />
+        <activity
+            android:name=".main_inscricoes"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivityAtividadesRealizadas"
+            android:exported="true" />
+        <activity
+            android:name=".PerfilOng"
+            android:exported="true" />
+
+        <activity
+            android:name=".VagaAdpter"
+            android:exported="true" />
+        <activity
+            android:name=".atividadesrealizadasdetalhes"
+            android:exported="true" />
+        <activity
+            android:name=".formularioong"
+            android:exported="true" />
+
+        <activity
+            android:name=".VagasVoluntarios"
+            android:exported="true" />
+        <activity
+            android:name=".MainPerfilVoluntarioActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

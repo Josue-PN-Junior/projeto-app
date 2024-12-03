@@ -131,7 +131,6 @@
             android:layout_height="wrap_content"
             android:text="Cod.Vaga: 12345"
             android:textColor="#FFFFFF" />
-
         <Button
             android:id="@+id/btnCandidatar1"
             android:layout_width="wrap_content"
@@ -174,7 +173,6 @@
             android:layout_height="wrap_content"
             android:text="Cod.Vaga: 12346"
             android:textColor="#FFFFFF" />
-
         <Button
             android:id="@+id/btnCandidatar2"
             android:layout_width="wrap_content"
@@ -218,7 +216,6 @@
             android:text="Cod.Vaga: 12347"
             android:textColor="#FFFFFF" />
         <Button
-
             android:id="@+id/btnCandidatar3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

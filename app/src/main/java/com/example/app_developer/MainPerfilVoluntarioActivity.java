@@ -2,13 +2,11 @@ package com.example.app_developer; // O pacote correto
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button; // Para o botão
 import android.widget.EditText; // Para o EditText
-
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ImageView; // Usando ImageView normal
+import android.widget.TextView; // Para o TextView de descrição
 import android.widget.Toast; // Importando a classe Toast para exibir mensagens
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,20 +14,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
-public class MainActivityAtividadesRealizadas extends AppCompatActivity {
+public class MainPerfilVoluntarioActivity extends AppCompatActivity {
 
     private DataManager dataManager;  // Instância do DataManager
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activityatividadesrealizadas); // Certifique-se de que o layout está correto
+        setContentView(R.layout.activity_main_perfilvoluntario);
 
         // Instância do DataManager
         dataManager = new DataManager(this);
         dataManager.open(); // Abre o banco de dados
 
+        // Configuração da interface (já existe no seu código)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -43,7 +41,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a Home (Home.java)
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, Home.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, Home.class);
                 startActivity(intent);  // Inicia a Home
             }
         });
@@ -56,7 +54,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, VagasVoluntarios.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, VagasVoluntarios.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -69,7 +67,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, Config.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, Config.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -82,7 +80,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, VagasPesquisa.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, VagasPesquisa.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -94,34 +92,33 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, MainPerfilVoluntarioActivity.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, MainPerfilVoluntarioActivity.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
 
-        // Encontrar o EditText (editTextAtividades) para o usuário digitar a descrição da atividade
-        EditText editTextDescricaoAtividade = findViewById(R.id.editTextAtividades);
+        // Encontrar o ImageView para VagasVoluntarios (imageView9)
+        ImageView imageViewSeta = findViewById(R.id.imageView7);
 
-        // Encontrar o Button (buttonSalvarAtividade) para salvar a atividade
-        Button buttonSalvarAtividade = findViewById(R.id.button6);
+        imageViewSeta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Criar a Intent para abrir a VagasVoluntariosActivity
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, Home.class);
+                startActivity(intent);  // Inicia a nova Activity
+            }
+        });
 
-        // Ler dados da tabela de atividades do banco de dados e preencher o EditText com as atividades
-        String atividadesSalvas = dataManager.readAtividade();  // Use readAtividades() para ler da tabela de atividades
-        editTextDescricaoAtividade.setText(atividadesSalvas);  // Preenche o EditText com as atividades salvas
+        TextView textViewAtividadesRealizadasVoluntario = findViewById(R.id.textView5);
 
-        // Configurar o clique do botão para salvar a atividade
-        buttonSalvarAtividade.setOnClickListener(v -> {
-            // Obter o texto digitado pelo usuário no EditText
-            String descricaoAtividade = editTextDescricaoAtividade.getText().toString();
-
-            // Usar o DataManager para salvar ou atualizar a atividade no banco
-            dataManager.saveDescricaoOng(descricaoAtividade);  // Use saveAtividade() para salvar na tabela de atividades
-
-            // Exibir a atividade no próprio EditText
-            editTextDescricaoAtividade.setText(descricaoAtividade);  // Atualiza o EditText com o texto inserido
-
-            // Exibir uma mensagem Toast confirmando que a atividade foi salva
-            Toast.makeText(MainActivityAtividadesRealizadas.this, "Atividade salva com sucesso!", Toast.LENGTH_SHORT).show();
+        // Configurar o clique para VagasVoluntarios
+        textViewAtividadesRealizadasVoluntario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Criar a Intent para abrir a VagasVoluntariosActivity
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, MainActivityAtividadesRealizadas.class);
+                startActivity(intent);  // Inicia a nova Activity
+            }
         });
 
         TextView textViewInscricoesVoluntario = findViewById(R.id.textView9);
@@ -130,7 +127,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, main_inscricoes.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, main_inscricoes.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -141,12 +138,35 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, MainPerfilVoluntarioActivity.class);
+                Intent intent = new Intent(MainPerfilVoluntarioActivity.this, MainPerfilVoluntarioActivity.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
 
+        // Encontrar o EditText (editTextText) para o usuário digitar a descrição
+        EditText editTextDescricao = findViewById(R.id.editTextText);
 
+        // Encontrar o Button (button6) para salvar a descrição
+        Button buttonSalvar = findViewById(R.id.button6);
+
+        // Ler dados do banco de dados e preencher o EditText
+        String descricaoSalva = dataManager.readData();
+        editTextDescricao.setText(descricaoSalva);  // Preenche o EditText com a descrição salva
+
+        // Configurar o clique do botão para salvar a descrição
+        buttonSalvar.setOnClickListener(v -> {
+            // Obter o texto digitado pelo usuário no EditText
+            String descricao = editTextDescricao.getText().toString();
+
+            // Usar o DataManager para salvar ou atualizar a descrição no banco
+            dataManager.saveData(descricao);  // Este método vai limpar a tabela e inserir a nova descrição
+
+            // Exibir a descrição no próprio EditText
+            editTextDescricao.setText(descricao);  // Atualiza o EditText com o texto inserido
+
+            // Exibir uma mensagem Toast confirmando que a descrição foi salva
+            Toast.makeText(MainPerfilVoluntarioActivity.this, "Descrição salva com sucesso!", Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
