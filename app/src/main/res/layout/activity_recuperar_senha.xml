@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Abertura"
+    android:background="@color/azulFundo">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:textAlignment="center"
+
+        android:text="Recuperar Senha"
+
+        android:shadowColor="@color/cinza"
+        android:shadowRadius="11"
+        android:shadowDx="5"
+        android:shadowDy="5"
+
+        android:textSize="50dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:fontFamily="@font/inter_variablefont"/>
+
+    <!-- DIV do Enviar Código -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="50dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Informe seu e-mail"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/set_email_login"
+
+            android:maxLines="1"
+            android:inputType="text"
+            android:singleLine="true"
+
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="15dp"
+
+            android:hint="Insira o e-mail  da conta..."
+            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
+                android:paddingVertical="10dp"
+
+                android:text="Enviar Código"
+                android:textSize="22dp"
+                app:backgroundTint="@color/azulFundoClaro"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- Fim da DIV -->
+
+    <!-- Meio -->
+
+    <!-- Linha -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="50dp"
+
+        android:background="@drawable/linha"
+        android:layout_marginHorizontal="30dp">
+
+    </LinearLayout>
+
+    <!-- DIV Código-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Insira o código enviado por e-mail"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="10dp"
+                    android:background="@drawable/cod_num"
+                    android:inputType="text"
+                    android:maxLength="4"
+
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:hint="_ _ _ _    _ _ _ _ "
+
+                    android:textSize="40dp"
+                    android:textAlignment="center"
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="right"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/bt_RecSenhaVerCod"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:paddingVertical="10dp"
+
+                    android:text="Verificar Código"
+                    android:textSize="22dp"
+                    app:backgroundTint="@color/azulFundoEscuro"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_RecSenhaSup"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="53dp"
+
+        android:text="Entrar em contato com o suporte"
+        android:textSize="15dp"
+
+        android:background="#00000000"/>
+
+
+</LinearLayout>

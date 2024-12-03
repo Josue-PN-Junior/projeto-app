@@ -1,0 +1,21 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- Sombra (background da sombra) -->
+<item>
+    <shape>
+        <solid android:color="#55000000" /> <!-- Cor da sombra (preta com 50% de opacidade) -->
+        <corners android:radius="50dp" /> <!-- Raio de arredondamento da sombra -->
+        <padding
+            android:left="1dp"
+            android:top="0dp"
+            android:right="1dp"
+            android:bottom="2dp" /> <!-- Deslocamento da sombra -->
+    </shape>
+</item>
+<item>
+    <shape>
+        <solid/>
+        <corners android:radius="50dp"/>
+    </shape>
+</item>
+</layer-list>

@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">app_developer</string>
+
+    <string name="texto_termos">
+            1. Aceitação dos Termos
+    Ao fazer download, acessar ou usar o aplicativo [Nome do Aplicativo], você concorda com estes Termos de Uso. Se você não concordar, não utilize o aplicativo.
+
+        2. Serviços Oferecidos
+    O [Nome do Aplicativo] fornece [descreva brevemente os serviços oferecidos, ex.: "uma plataforma para registrar queixas relacionadas a problemas na cidade"]. As funcionalidades podem ser alteradas, suspensas ou encerradas sem aviso prévio.
+
+        3. Uso Permitido
+    Você se compromete a usar o aplicativo de forma responsável, sem:
+
+    Enviar informações falsas ou enganosas.
+    Utilizar o aplicativo para fins ilícitos ou prejudiciais.
+    Tentar acessar ou modificar o sistema ou dados de outros usuários.
+
+        4. Cadastro e Dados Pessoais
+    Para utilizar o aplicativo, pode ser necessário criar uma conta e fornecer informações precisas e atualizadas. O uso e armazenamento de seus dados seguem as diretrizes descritas na nossa Política de Privacidade.
+
+        5. Responsabilidades do Usuário
+    Você é responsável pelas informações inseridas e pelas ações realizadas no aplicativo. O [Nome do Aplicativo] não se responsabiliza por danos resultantes do uso inadequado.
+
+        6. Propriedade Intelectual
+    Todo o conteúdo e funcionalidades do [Nome do Aplicativo] são protegidos por direitos autorais e não podem ser reproduzidos sem permissão.
+
+        7. Limitação de Responsabilidade
+    O [Nome do Aplicativo] é fornecido "como está" e não garante que estará livre de erros ou interrupções. Não nos responsabilizamos por perdas ou danos decorrentes do uso do aplicativo.
+
+        8. Alterações nos Termos
+    Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento. As alterações serão comunicadas no aplicativo, e o uso contínuo implicará na aceitação das mudanças.
+
+        9. Contato
+    Para dúvidas ou suporte, entre em contato conosco pelo e-mail: [email de suporte].
+
+    </string>
 </resources>

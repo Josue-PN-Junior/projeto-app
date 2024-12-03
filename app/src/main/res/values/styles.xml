@@ -1,0 +1,15 @@
+<!--<resources>-->
+<!--&lt;!&ndash; Estilo customizado para a BottomNavigationView &ndash;&gt;-->
+<!--<style name="CustomBottomNav" parent="Widget.MaterialComponents.BottomNavigationView">-->
+<!--    <item name="android:layout_height">56dp</item> &lt;!&ndash; Altura ajustada da barra &ndash;&gt;-->
+<!--    <item name="itemIconSize">24dp</item> &lt;!&ndash; Tamanho do ícone &ndash;&gt;-->
+<!--</style>-->
+<!--</resources>-->
+<resources>
+    <style name="CustomBottomNav" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">@color/azulFundoBemClaro</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+</resources>

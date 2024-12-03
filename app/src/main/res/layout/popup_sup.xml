@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="350dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/arredondar"
+
+            >
+
+            <Button
+                android:id="@+id/bt_popSupFechar"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textSize="40dp"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:gravity="center"
+                android:layout_marginLeft="300dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#0000"
+
+
+            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Suporte:"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+
+                android:layout_margin="20dp"
+
+                android:text="E-mail: conexao@suport.com"
+                android:autoLink="email"
+
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+
+                android:layout_margin="20dp"
+
+                android:text="Telefone: (11) 9999-9999"
+                android:autoLink="phone"
+
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+
+                android:layout_margin="20dp"
+
+                android:text="Site: conexaosilidaria.com.br"
+                android:autoLink="web"
+
+                android:textSize="20dp"/>
+
+
+        </LinearLayout>
+
+</LinearLayout>

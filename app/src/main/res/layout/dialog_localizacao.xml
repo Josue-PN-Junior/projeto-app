@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Switch para permitir/desativar localização -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ativar localização"
+        android:textSize="16sp"
+        android:paddingBottom="8dp"/>
+
+    <Switch
+        android:id="@+id/switch_localizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"/>
+
+    <!-- RadioButtons para escolher o método de localização -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha o método de localização"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_localizacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radio_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Automático" />
+
+        <RadioButton
+            android:id="@+id/radio_manual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manual" />
+    </RadioGroup>
+
+    <!-- Exibe uma descrição sobre o método escolhido -->
+    <TextView
+        android:id="@+id/texto_metodo_localizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Método de localização: Automático"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>
