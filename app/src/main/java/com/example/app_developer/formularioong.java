@@ -63,71 +63,6 @@ public class formularioong extends AppCompatActivity {
                 }
             }
         });
-
-        ImageView imageViewHome = findViewById(R.id.imageView5);
-
-        // Configurar o clique para a Home
-        imageViewHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a Home (Home.java)
-                Intent intent = new Intent(formularioong.this, Home.class);
-                startActivity(intent);  // Inicia a Home
-            }
-        });
-
-
-        // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        ImageView imageViewVagas = findViewById(R.id.imageView9);
-
-        // Configurar o clique para VagasVoluntarios
-        imageViewVagas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(formularioong.this, activity_vagasong.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        ImageView imageViewIcone = findViewById(R.id.imageView12);
-
-        // Configurar o clique para VagasVoluntarios
-        imageViewIcone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(formularioong.this, PerfilOng.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        ImageView imageViewEngrenagem = findViewById(R.id.imageView10);
-
-        // Configurar o clique para VagasVoluntarios
-        imageViewEngrenagem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(formularioong.this, Config.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        ImageView imageViewLupa = findViewById(R.id.imageView11);
-
-        // Configurar o clique para VagasVoluntarios
-        imageViewLupa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(formularioong.this, VagasPesquisa.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
     }
 
     // Método para salvar a vaga usando SharedPreferences
@@ -135,7 +70,7 @@ public class formularioong extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("vagas", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        // Concatena todos os dados da vaga em uma string
+        // Concatenar todos os dados da vaga em uma string
         String vagaData = vaga.getTitulo() + ";" +
                 vaga.getInstituicao() + ";" +
                 vaga.getLocal() + ";" +
@@ -144,7 +79,7 @@ public class formularioong extends AppCompatActivity {
                 vaga.getRequisitos() + ";" +
                 vaga.getDetalhamento();
 
-        // Salva a string concatenada usando o id da vaga como chave
+        // Salvar a string concatenada usando o id da vaga como chave
         editor.putString(vaga.getIdvaga(), vagaData);
         editor.apply();
     }
