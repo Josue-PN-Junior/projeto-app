@@ -26,7 +26,7 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
 
     @Override
     public VagaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Infla o layout correto para um item de vaga
+        // Infla o layout para um item de vaga
         View view = LayoutInflater.from(context).inflate(R.layout.activity_vagainscricaounificado, parent, false);
         return new VagaViewHolder(view);
     }
@@ -35,14 +35,14 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
     public void onBindViewHolder(VagaViewHolder holder, int position) {
         Vaga vaga = vagaList.get(position);
 
-        // Preenche os campos com as informações da vaga
+        // Preenche os campos com as informações da vaga:
         holder.textTitulo.setText(vaga.getTitulo());
         holder.textInstituicao.setText(vaga.getInstituicao());
 
 
         // Clique no TextView "Ver Detalhes"
         holder.textVerDetalhes.setOnClickListener(v -> {
-            Log.d("TerceiraVagaAdpter", "Clicado em Ver Detalhes para a vaga: " + vaga.getTitulo());
+            Log.d("SegundaVagaAdpter", "Clicado em Ver Detalhes para a vaga: " + vaga.getTitulo());
             // Cria a Intent para abrir a atividade de detalhes
             Intent intent = new Intent(context, atividadesrealizadasdetalhes.class);
 
@@ -62,7 +62,7 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
 
         // Clique no botão "Me Candidatar"
         holder.buttonCandidatar.setOnClickListener(v -> {
-            Log.d("TerceiraVagaAdpter", "Clicado em Me Candidatar para a vaga: " + vaga.getTitulo());
+            Log.d("SegundaVagaAdpter", "Clicado em Me Candidatar para a vaga: " + vaga.getTitulo());
 
             // Salvar os dados da vaga no SharedPreferences
             SharedPreferences sharedPreferences = context.getSharedPreferences("vaga_pref", Context.MODE_PRIVATE);
@@ -91,7 +91,7 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
     }
 
     public static class VagaViewHolder extends RecyclerView.ViewHolder {
-        TextView textTitulo, textInstituicao, textVerDetalhes;
+        TextView textTitulo, textInstituicao, textLocaL, textVerDetalhes;
         Button buttonCandidatar;
 
         public VagaViewHolder(View itemView) {
@@ -99,6 +99,7 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
             // Inicializa as views do item
             textTitulo = itemView.findViewById(R.id.textVaga);
             textInstituicao = itemView.findViewById(R.id.textOng);
+
             textVerDetalhes = itemView.findViewById(R.id.textView39);  // "Ver detalhes"
             buttonCandidatar = itemView.findViewById(R.id.buttonCandidatarVaga);  // Botão "Me Candidatar"
         }
