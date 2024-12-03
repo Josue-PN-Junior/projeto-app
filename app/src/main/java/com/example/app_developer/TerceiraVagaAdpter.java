@@ -1,6 +1,5 @@
-
 package com.example.app_developer;
-//
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,14 +35,13 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
     public void onBindViewHolder(VagaViewHolder holder, int position) {
         Vaga vaga = vagaList.get(position);
 
-        // Preenche os campos com as informações da vaga:
+        // Preenche os campos com as informações da vaga
         holder.textTitulo.setText(vaga.getTitulo());
         holder.textInstituicao.setText(vaga.getInstituicao());
 
-
         // Clique no TextView "Ver Detalhes"
         holder.textVerDetalhes.setOnClickListener(v -> {
-            Log.d("SegundaVagaAdpter", "Clicado em Ver Detalhes para a vaga: " + vaga.getTitulo());
+            Log.d("TerceiraVagaAdpter", "Clicado em Ver Detalhes para a vaga: " + vaga.getTitulo());
             // Cria a Intent para abrir a atividade de detalhes
             Intent intent = new Intent(context, atividadesrealizadasdetalhes.class);
 
@@ -63,21 +61,22 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
 
         // Clique no botão "Me Candidatar"
         holder.buttonCandidatar.setOnClickListener(v -> {
-            Log.d("SegundaVagaAdpter", "Clicado em Me Candidatar para a vaga: " + vaga.getTitulo());
+            Log.d("TerceiraVagaAdpter", "Clicado em Me Candidatar para a vaga: " + vaga.getTitulo());
 
             // Salvar os dados da vaga no SharedPreferences
             SharedPreferences sharedPreferences = context.getSharedPreferences("vaga_pref", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
-            // Salvar dados da vaga
-            editor.putString("vaga_name", vaga.getTitulo());
-            editor.putString("ong", vaga.getInstituicao());
-            editor.putString("local", vaga.getLocal());
-            editor.putString("data", vaga.getData());
-            editor.putString("horario", vaga.getHorario());
-            editor.putString("requisitos", vaga.getRequisitos());
-            editor.putString("descricao", vaga.getDetalhamento());
-            editor.putString("idvaga", vaga.getIdvaga());
+            // Usar o ID único da vaga (vaga.getIdvaga()) para garantir uma chave exclusiva
+            String vagaId = vaga.getIdvaga();
+            editor.putString("vaga_name_" + vagaId, vaga.getTitulo());
+            editor.putString("ong_" + vagaId, vaga.getInstituicao());
+            editor.putString("local_" + vagaId, vaga.getLocal());
+            editor.putString("data_" + vagaId, vaga.getData());
+            editor.putString("horario_" + vagaId, vaga.getHorario());
+            editor.putString("requisitos_" + vagaId, vaga.getRequisitos());
+            editor.putString("descricao_" + vagaId, vaga.getDetalhamento());
+            editor.putString("idvaga_" + vagaId, vaga.getIdvaga());
             editor.apply();  // Salva os dados
 
             // Agora, você pode abrir a Activity main_inscricoes
@@ -91,8 +90,9 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
         return vagaList != null ? vagaList.size() : 0;
     }
 
+    // Classe interna ViewHolder
     public static class VagaViewHolder extends RecyclerView.ViewHolder {
-        TextView textTitulo, textInstituicao, textLocaL, textVerDetalhes;
+        TextView textTitulo, textInstituicao, textVerDetalhes;
         Button buttonCandidatar;
 
         public VagaViewHolder(View itemView) {
@@ -100,7 +100,6 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
             // Inicializa as views do item
             textTitulo = itemView.findViewById(R.id.textVaga);
             textInstituicao = itemView.findViewById(R.id.textOng);
-
             textVerDetalhes = itemView.findViewById(R.id.textView39);  // "Ver detalhes"
             buttonCandidatar = itemView.findViewById(R.id.cancelarInscricao);  // Botão "Me Candidatar"
         }
