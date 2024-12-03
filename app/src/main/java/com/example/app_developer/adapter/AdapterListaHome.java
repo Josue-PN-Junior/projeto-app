@@ -36,6 +36,7 @@ public class AdapterListaHome extends RecyclerView.Adapter<AdapterListaHome.list
     @Override
     public void onBindViewHolder(@NonNull listaHomeViewHolder holder, int position) {
         holder.binding.homeTituloItenLista.setText(vagasLista.get(position).getTitulo_vaga());
+<<<<<<< HEAD
 
         String lixo = vagasLista.get(position).getCod_ong();
 
@@ -63,6 +64,13 @@ public class AdapterListaHome extends RecyclerView.Adapter<AdapterListaHome.list
                 TextView.BufferType.SPANNABLE
         );
 
+=======
+        holder.binding.homeOngItenLista.setText(vagasLista.get(position).getOng_vaga());
+        holder.binding.homeAtividadeItenLista.setText(vagasLista.get(position).getAtividade());
+        holder.binding.homeLocalItenLista.setText(vagasLista.get(position).getLocal());
+        //holder.binding.homeCodItenLista.setText(vagasLista.get(position).getCod());
+        holder.binding.homeCodItenLista.setText(String.valueOf(vagasLista.get(position).getCod()));
+>>>>>>> unificar2
 
 
 

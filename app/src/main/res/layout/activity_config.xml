@@ -9,7 +9,6 @@
     android:padding="16dp">
 
     <!-- Título Configurações -->
-
     <LinearLayout
         android:id="@+id/linearTitle"
         android:layout_width="0dp"

@@ -12,19 +12,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class perfil_ong_atividadesrealizadasdetalhamento extends AppCompatActivity {
+public class activity_atividadesrealizadasdetalhes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_atividadesrealizadasdetalhesong);
+        setContentView(R.layout.activity_atividadesrealizadasdetalhes);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         // Encontrar o ImageView para a Home (imageView5)
         ImageView imageViewHome = findViewById(R.id.imageView5);
 
@@ -33,62 +32,24 @@ public class perfil_ong_atividadesrealizadasdetalhamento extends AppCompatActivi
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a Home (Home.java)
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, Home.class);
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, Home.class);
                 startActivity(intent);  // Inicia a Home
             }
         });
 
         // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        ImageView imageViewVagas = findViewById(R.id.imageView9);
+        ImageView imageViewVagas = findViewById(R.id.imageView19);
 
         // Configurar o clique para VagasVoluntarios
         imageViewVagas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, activity_vagasong.class);
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, VagasVoluntarios.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
 
-        // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        ImageView imageViewEngrenagem = findViewById(R.id.imageView10);
-
-        // Configurar o clique para VagasVoluntarios
-        imageViewEngrenagem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, Config.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        ImageView imageViewLupa = findViewById(R.id.imageView11);
-
-        // Configurar o clique para VagasVoluntarios
-        imageViewLupa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, VagasPesquisa.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
-
-        // Encontrar o ImageView para VagasVoluntarios (imageView9)
-        TextView textViewAtividadesOng = findViewById(R.id.textView5);
-
-        // Configurar o clique para VagasVoluntarios
-        textViewAtividadesOng.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, perfil_ong_atividadesrealizadas.class);
-                startActivity(intent);  // Inicia a nova Activity
-            }
-        });
 
         // Encontrar o ImageView para VagasVoluntarios (imageView9)
         ImageView imageViewSeta = findViewById(R.id.imageView7);
@@ -97,7 +58,7 @@ public class perfil_ong_atividadesrealizadasdetalhamento extends AppCompatActivi
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, Home.class);
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, MainPerfilVoluntarioActivity.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -109,9 +70,49 @@ public class perfil_ong_atividadesrealizadasdetalhamento extends AppCompatActivi
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadasdetalhamento.this, PerfilOng.class);
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, MainPerfilVoluntarioActivity.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
+
+        // Encontrar o ImageView para VagasVoluntarios (imageView9)
+        ImageView imageViewEngrenagem = findViewById(R.id.imageView20);
+
+        // Configurar o clique para VagasVoluntarios
+        imageViewEngrenagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Criar a Intent para abrir a VagasVoluntariosActivity
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, Config.class);
+                startActivity(intent);  // Inicia a nova Activity
+            }
+        });
+
+        TextView textViewAtividadesRealizadasVoluntario = findViewById(R.id.textView5);
+
+        // Configurar o clique para VagasVoluntarios
+        textViewAtividadesRealizadasVoluntario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Criar a Intent para abrir a VagasVoluntariosActivity
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, MainActivityAtividadesRealizadas.class);
+                startActivity(intent);  // Inicia a nova Activity
+            }
+        });
+
+        TextView textViewInscricoesVoluntario = findViewById(R.id.textView9);
+
+
+        // Configurar o clique para VagasVoluntarios
+        textViewInscricoesVoluntario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Criar a Intent para abrir a VagasVoluntariosActivity
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, main_inscricoes.class);
+                startActivity(intent);  // Inicia a nova Activity
+            }
+        });
+
+
     }
 }
