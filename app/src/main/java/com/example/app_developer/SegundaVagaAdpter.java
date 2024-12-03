@@ -101,7 +101,7 @@ public class SegundaVagaAdpter extends RecyclerView.Adapter<SegundaVagaAdpter.Va
             textInstituicao = itemView.findViewById(R.id.textOng);
             textLocal = itemView.findViewById(R.id.textLocal);
             textVerDetalhes = itemView.findViewById(R.id.textView39);  // "Ver detalhes"
-            buttonCandidatar = itemView.findViewById(R.id.buttonCandidatarVaga);  // Botão "Me Candidatar"
+            buttonCandidatar = itemView.findViewById(R.id.cancelarInscricao);  // Botão "Me Candidatar"
         }
     }
 }

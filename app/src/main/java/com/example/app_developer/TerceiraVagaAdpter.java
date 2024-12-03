@@ -1,3 +1,4 @@
+
 package com.example.app_developer;
 //
 import android.content.Context;
@@ -101,7 +102,7 @@ public class TerceiraVagaAdpter extends RecyclerView.Adapter<TerceiraVagaAdpter.
             textInstituicao = itemView.findViewById(R.id.textOng);
 
             textVerDetalhes = itemView.findViewById(R.id.textView39);  // "Ver detalhes"
-            buttonCandidatar = itemView.findViewById(R.id.buttonCandidatarVaga);  // Botão "Me Candidatar"
+            buttonCandidatar = itemView.findViewById(R.id.cancelarInscricao);  // Botão "Me Candidatar"
         }
     }
 }
