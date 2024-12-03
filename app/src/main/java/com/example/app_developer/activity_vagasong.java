@@ -1,4 +1,3 @@
-
 package com.example.app_developer;
 
 import android.content.Intent;
@@ -17,7 +16,7 @@ import java.util.List;
 public class activity_vagasong extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private VagaAdpter vagaAdpter;
+    private VagaAdpter VagaAdpter;  // Usando o adaptador correto
     private List<Vaga> vagas;
 
     @Override
@@ -33,8 +32,8 @@ public class activity_vagasong extends AppCompatActivity {
         vagas = loadVagas();
 
         // Criar o Adapter e associar com a RecyclerView
-        vagaAdpter = new VagaAdpter(this, vagas);
-        recyclerView.setAdapter(vagaAdpter);
+        VagaAdpter = new VagaAdpter(this, vagas);  // Criando uma instância de SegundaVagaAdpter
+        recyclerView.setAdapter(VagaAdpter);
 
         Button buttonNovaVaga = findViewById(R.id.button7);
         buttonNovaVaga.setOnClickListener(new View.OnClickListener() {
@@ -46,8 +45,6 @@ public class activity_vagasong extends AppCompatActivity {
             }
         });
     }
-
-
 
     // Método para carregar as vagas salvas usando SharedPreferences
     private List<Vaga> loadVagas() {

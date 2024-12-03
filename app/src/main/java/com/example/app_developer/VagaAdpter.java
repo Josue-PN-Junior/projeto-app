@@ -112,7 +112,7 @@ public class VagaAdpter extends RecyclerView.Adapter<VagaAdpter.VagaViewHolder> 
             textInstituicao = itemView.findViewById(R.id.textOng);
             textLocal = itemView.findViewById(R.id.textLocal);
             textVerDetalhes = itemView.findViewById(R.id.textView39);  // "Ver detalhes"
-            btnCancelarVaga = itemView.findViewById(R.id.buttonCancelarVaga);  // Botão de excluir
+            btnCancelarVaga = itemView.findViewById(R.id.buttonCandidatarVaga);  // Botão de excluir
         }
     }
 }

@@ -2,9 +2,12 @@ package com.example.app_developer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,44 +35,68 @@ public class SegundaVagaAdpter extends RecyclerView.Adapter<SegundaVagaAdpter.Va
     public void onBindViewHolder(VagaViewHolder holder, int position) {
         Vaga vaga = vagaList.get(position);
 
-        // Preenche os campos com a ordem correta:
-        holder.textTitulo.setText(vaga.getTitulo());           // Título da vaga
-        holder.textInstituicao.setText(vaga.getInstituicao()); // ONG
-        holder.textLocal.setText(vaga.getLocal());             // Local
+        // Preenche os campos com as informações da vaga:
+        holder.textTitulo.setText(vaga.getTitulo());
+        holder.textInstituicao.setText(vaga.getInstituicao());
+        holder.textLocal.setText(vaga.getLocal());
 
-        // Configura o clique no TextView "Ver detalhes"
+        // Clique no TextView "Ver Detalhes"
         holder.textVerDetalhes.setOnClickListener(v -> {
+            Log.d("SegundaVagaAdpter", "Clicado em Ver Detalhes para a vaga: " + vaga.getTitulo());
             // Cria a Intent para abrir a atividade de detalhes
             Intent intent = new Intent(context, atividadesrealizadasdetalhes.class);
 
             // Passa os dados da vaga para a nova Activity
-            intent.putExtra("vaga_name", vaga.getTitulo()); // Título
-            intent.putExtra("ong", vaga.getInstituicao());  // ONG
-            intent.putExtra("local", vaga.getLocal());      // Local
-            intent.putExtra("data", vaga.getData());        // Data
-            intent.putExtra("horario", vaga.getHorario());  // Horário
-            intent.putExtra("requisitos", vaga.getRequisitos()); // Requisitos
-            intent.putExtra("descricao", vaga.getDetalhamento()); // Descrição
-            intent.putExtra("idvaga", vaga.getIdvaga());    // ID da vaga
+            intent.putExtra("vaga_name", vaga.getTitulo());
+            intent.putExtra("ong", vaga.getInstituicao());
+            intent.putExtra("local", vaga.getLocal());
+            intent.putExtra("data", vaga.getData());
+            intent.putExtra("horario", vaga.getHorario());
+            intent.putExtra("requisitos", vaga.getRequisitos());
+            intent.putExtra("descricao", vaga.getDetalhamento());
+            intent.putExtra("idvaga", vaga.getIdvaga());
 
             // Inicia a Activity
             context.startActivity(intent);
         });
-    }
 
+        // Clique no botão "Me Candidatar"
+        // Clique no botão "Me Candidatar"
+        holder.buttonCandidatar.setOnClickListener(v -> {
+            Log.d("SegundaVagaAdpter", "Clicado em Me Candidatar para a vaga: " + vaga.getTitulo());
+
+            // Salvar os dados da vaga no SharedPreferences
+            SharedPreferences sharedPreferences = context.getSharedPreferences("vaga_pref", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            // Salvar dados da vaga
+            editor.putString("vaga_name", vaga.getTitulo());
+            editor.putString("ong", vaga.getInstituicao());
+            editor.putString("local", vaga.getLocal());
+            editor.putString("data", vaga.getData());
+            editor.putString("horario", vaga.getHorario());
+            editor.putString("requisitos", vaga.getRequisitos());
+            editor.putString("descricao", vaga.getDetalhamento());
+            editor.putString("idvaga", vaga.getIdvaga());
+            editor.apply();  // Salva os dados
+
+            // Agora, você pode abrir a Activity main_inscricoes
+            Intent intent = new Intent(context, main_inscricoes.class);
+            context.startActivity(intent);
+        });
+
+
+
+    }
 
     @Override
     public int getItemCount() {
-        // Verifica se a lista não é nula e retorna o tamanho
-        if (vagaList != null) {
-            return vagaList.size();
-        }
-        return 0;
+        return vagaList != null ? vagaList.size() : 0;
     }
 
-    // ViewHolder para cada item da vaga
     public static class VagaViewHolder extends RecyclerView.ViewHolder {
         TextView textTitulo, textInstituicao, textLocal, textVerDetalhes;
+        Button buttonCandidatar;
 
         public VagaViewHolder(View itemView) {
             super(itemView);
@@ -78,6 +105,7 @@ public class SegundaVagaAdpter extends RecyclerView.Adapter<SegundaVagaAdpter.Va
             textInstituicao = itemView.findViewById(R.id.textOng);
             textLocal = itemView.findViewById(R.id.textLocal);
             textVerDetalhes = itemView.findViewById(R.id.textView39);  // "Ver detalhes"
+            buttonCandidatar = itemView.findViewById(R.id.buttonCandidatarVaga);  // Botão "Me Candidatar"
         }
     }
 }
