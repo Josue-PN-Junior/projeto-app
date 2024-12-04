@@ -17,7 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 
-public class MainActivityAtividadesRealizadas extends AppCompatActivity {
+public class MainActivityatividadesrealizadas extends AppCompatActivity {
 
     private DataManager dataManager;  // Instância do DataManager
 
@@ -43,7 +43,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a Home (Home.java)
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, Home.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, Home.class);
                 startActivity(intent);  // Inicia a Home
             }
         });
@@ -56,7 +56,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, VagasVoluntarios.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, vagasvoluntarios.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -69,7 +69,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, Config.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, Config.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -82,7 +82,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, VagasPesquisa.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, VagasPesquisa.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -94,7 +94,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, MainPerfilVoluntarioActivity.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, MainPerfilVoluntarioActivity.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -121,7 +121,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             editTextDescricaoAtividade.setText(descricaoAtividade);  // Atualiza o EditText com o texto inserido
 
             // Exibir uma mensagem Toast confirmando que a atividade foi salva
-            Toast.makeText(MainActivityAtividadesRealizadas.this, "Atividade salva com sucesso!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivityatividadesrealizadas.this, "Atividade salva com sucesso!", Toast.LENGTH_SHORT).show();
         });
 
         TextView textViewInscricoesVoluntario = findViewById(R.id.textView9);
@@ -130,7 +130,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, main_inscricoes.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, main_inscricoes.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -141,7 +141,7 @@ public class MainActivityAtividadesRealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(MainActivityAtividadesRealizadas.this, MainPerfilVoluntarioActivity.class);
+                Intent intent = new Intent(MainActivityatividadesrealizadas.this, MainPerfilVoluntarioActivity.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });

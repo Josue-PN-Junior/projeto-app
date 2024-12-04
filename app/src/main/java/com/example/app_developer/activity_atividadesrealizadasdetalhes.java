@@ -45,7 +45,7 @@ public class activity_atividadesrealizadasdetalhes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, VagasVoluntarios.class);
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, vagasvoluntarios.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -95,7 +95,7 @@ public class activity_atividadesrealizadasdetalhes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, MainActivityAtividadesRealizadas.class);
+                Intent intent = new Intent(activity_atividadesrealizadasdetalhes.this, MainActivityatividadesrealizadas.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });

@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VagasVoluntarios extends AppCompatActivity {
+public class vagasvoluntarios extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private SegundaVagaAdpter segundaVagaAdpter;
@@ -45,7 +45,7 @@ public class VagasVoluntarios extends AppCompatActivity {
         ImageView imageViewSeta = findViewById(R.id.imageView7);
         imageViewSeta.setOnClickListener(v -> {
             // Criar a Intent para abrir a HomeActivity
-            Intent intent = new Intent(VagasVoluntarios.this, Home.class);
+            Intent intent = new Intent(vagasvoluntarios.this, Home.class);
             startActivity(intent);  // Inicia a nova Activity
         });
     }

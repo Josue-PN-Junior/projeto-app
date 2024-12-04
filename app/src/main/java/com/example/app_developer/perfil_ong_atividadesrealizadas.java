@@ -108,7 +108,7 @@ public class perfil_ong_atividadesrealizadas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(perfil_ong_atividadesrealizadas.this, PerfilOng.class);
+                Intent intent = new Intent(perfil_ong_atividadesrealizadas.this, perfilOng.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });

@@ -15,7 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class PerfilOng extends AppCompatActivity {
+public class perfilOng extends AppCompatActivity {
 
     private DataManager dataManager;
 
@@ -43,7 +43,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a Home (Home.java)
-                Intent intent = new Intent(PerfilOng.this, Home.class);
+                Intent intent = new Intent(perfilOng.this, Home.class);
                 startActivity(intent);  // Inicia a Home
             }
         });
@@ -56,7 +56,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(PerfilOng.this, activity_vagasong.class);
+                Intent intent = new Intent(perfilOng.this, activity_vagasong.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -69,7 +69,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(PerfilOng.this, Config.class);
+                Intent intent = new Intent(perfilOng.this, Config.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -82,7 +82,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(PerfilOng.this, VagasPesquisa.class);
+                Intent intent = new Intent(perfilOng.this, VagasPesquisa.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -95,7 +95,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(PerfilOng.this, perfil_ong_atividadesrealizadas.class);
+                Intent intent = new Intent(perfilOng.this, perfil_ong_atividadesrealizadas.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -107,7 +107,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(PerfilOng.this, Home.class);
+                Intent intent = new Intent(perfilOng.this, Home.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
@@ -134,7 +134,7 @@ public class PerfilOng extends AppCompatActivity {
             editTextDescricaoAtividadeONG.setText(descricaoAtividade);  // Atualiza o EditText com o texto inserido
 
             // Exibir uma mensagem Toast confirmando que a atividade foi salva
-            Toast.makeText(PerfilOng.this, "Atividade salva com sucesso!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(perfilOng.this, "Atividade salva com sucesso!", Toast.LENGTH_SHORT).show();
         });
 
         // Encontrar o ImageView para VagasVoluntarios (imageView9)
@@ -144,7 +144,7 @@ public class PerfilOng extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a VagasVoluntariosActivity
-                Intent intent = new Intent(PerfilOng.this, PerfilOng.class);
+                Intent intent = new Intent(perfilOng.this, perfilOng.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });

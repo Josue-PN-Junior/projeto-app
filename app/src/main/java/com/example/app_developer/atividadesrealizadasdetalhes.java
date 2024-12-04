@@ -117,7 +117,7 @@ public class atividadesrealizadasdetalhes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Criar a Intent para abrir a PerfilOngActivity
-                Intent intent = new Intent(atividadesrealizadasdetalhes.this, PerfilOng.class);
+                Intent intent = new Intent(atividadesrealizadasdetalhes.this, perfilOng.class);
                 startActivity(intent);  // Inicia a nova Activity
             }
         });
